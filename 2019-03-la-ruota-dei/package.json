@@ -1,0 +1,28 @@
+{
+  "name": "la-ruota-dei",
+  "version": "1.0.0",
+  "description": "La ruota dei...",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/massimo-cassandro/la-ruota-dei.git"
+  },
+  "author": "Massimo Cassandro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/massimo-cassandro/la-ruota-dei/issues"
+  },
+  "homepage": "https://github.com/massimo-cassandro/la-ruota-dei#readme",
+  "devDependencies": {
+    "gulp-svgstore": "^7.0.1",
+    "gulp-chmod": "^2.0.0",
+    "gulp-file": "^0.3.0",
+    "gulp-svgmin": "^1.2.4",
+    "gulp-rename": "^1.4.0"
+  },
+  "dependencies": {
+    "grabbable2": "git+https://github.com/massimo-cassandro/grabbable2.git"
+  }
+}

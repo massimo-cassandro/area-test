@@ -1,0 +1,81 @@
+@import 'explore_and_taste_vars.less';
+
+* {-webkit-text-size-adjust: none}
+
+@media only screen and (max-width: 640px)  {
+	body {
+		&[class="yahoo_fix"] {
+			& .deviceWidth {
+				width:440px!important;
+			}
+		}
+	}
+
+	.content {
+		&.columns-wrapper {
+			& td.column-spacer {
+				height: 0!important;
+			}
+
+			& td.column-width, td.column-spacer  {
+				display: block !important;
+				width:100% !important;
+			}
+			& .column-content {
+				& td {
+					& h2 {
+						font-size:@font-size*1.5!important;
+					}
+					& .text {
+						font-size:@font-size*1.15!important;
+					}
+					& .buttons {
+						font-size:@font-size*1.3!important;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 479px) {
+	body {
+		&[class="yahoo_fix"] {
+			& .deviceWidth {
+				width:280px!important;
+			}
+		}
+	}
+
+	.content {
+		&.header {
+			& .summary {
+				& td {
+					display:block !important;
+					font-size:@font-size;
+
+					& img {
+						margin-right:0 !important;
+					}
+
+					& p {
+						&.summary-link {
+							text-align: left;
+							margin-top:1em;
+							margin-bottom:.5em;
+							font-size:@font-size/1.4;
+						}
+					}
+				}
+			}
+
+			& .nav {
+				& td {
+					font-size:@font-size !important;
+					padding: @spacing @spacing/2 !important;
+					font-weight: normal !important;
+				}
+			}
+		}
+	}
+}

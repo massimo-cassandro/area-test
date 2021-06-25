@@ -1,0 +1,11 @@
+{
+  "name": "doughnut-chart-animation",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "start_sass": "../node_modules/.bin/sass css/demo.scss dist/demo.css --source-map --load-path=../node_modules/ --style=expanded --watch",
+    "start_rollup": "# ../node_modules/.bin/rollup --input js/doughnut-chart-animation.js --file dist/doughnut-chart-animation.min.js --format iife --sourcemap --plugin 'terser={output: {beautify: true, indent_level: 2}}' --plugin @rollup/plugin-node-resolve --watch"
+  },
+  "author": "Massimo Cassandro",
+  "license": "MIT"
+}

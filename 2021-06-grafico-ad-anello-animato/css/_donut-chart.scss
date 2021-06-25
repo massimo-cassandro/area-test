@@ -1,0 +1,52 @@
+.donut-chart {
+  width: 400px;
+  height: 400px;
+  margin: 1rem 0;
+  background-color: #ddd;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 25px,
+      rgba(255, 255, 255, .3) 25px,
+      rgba(255, 255, 255, .3) 50px
+    );
+
+  path {
+    fill: none;
+  }
+
+  .chart-arc {
+    fill: none;
+    &:not([stroke]) {
+      stroke: #666;
+    }
+    stroke-linecap: butt;
+  }
+  .base-circle {
+    fill: none;
+    stroke: #ccc;
+  }
+}
+
+
+
+// solo per demo
+.ref-circle {
+  fill: none;
+  stroke: #000;
+  stroke-dasharray: 10 3;
+}
+
+.chart-ref-lines {
+  fill: none;
+  stroke: #a20795;
+  stroke-width: .5px;
+  stroke-dasharray: 10 1;
+}
+
+.chart-ref-text {
+  font-family: sans-serif;
+  font-size: 5px;
+  fill: #a20795;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas to image (with webfonts)</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./canvas-to-img.css">
+  <link rel="icon" href="data:;base64,=">
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+<p class="text-center">
+  <label for="text">Add text</label>
+  <input id="text" type="text" value="Some text">
+  <button type="button" id="insert-text-btn">Insert text</button>
+
+</p>
+<p class="text-center"><a href="#" id="export" download="myfile.jpeg">Download img</a></p>
+<p>refs:</p>
+<ul>
+  <li><a href="https://stackoverflow.com/questions/923885/capture-html-canvas-as-gif-jpg-png-pdf">https://stackoverflow.com/questions/923885/capture-html-canvas-as-gif-jpg-png-pdf</a></li>
+  <li><a href="https://stackoverflow.com/questions/29315787/draw-to-canvas-only-after-google-web-font-is-loaded">https://stackoverflow.com/questions/29315787/draw-to-canvas-only-after-google-web-font-is-loaded</a></li>
+</ul>
+
+<script  src="./canvas-to-img.js"></script>
+</body>
+</html>

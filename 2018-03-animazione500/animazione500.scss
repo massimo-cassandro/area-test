@@ -1,0 +1,124 @@
+$w500:694px;
+$h500:337px;
+$hpadding:50px;
+$grigio-chiaro: #666;
+$grigio-scuro: #444;
+$primary: #036;
+$giallo: #fc0;
+
+body {
+  font-family: 'Titillium Web', Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+  padding:1rem
+}
+
+%obiettivo_off {
+  text, .freccia {
+    fill: rgba($grigio-chiaro, .7);
+  }
+}
+
+.wrapper-500 {
+  text-align: center;
+
+  > svg {
+    height: auto;
+    width: 100%;
+    max-width: 850px; // larghezza img 500 (694px) + padding 50px dx e sx
+
+
+
+    // svg interno
+    clipPath, image {
+      height: 100%;
+      width: 100%;
+    }
+
+    // maschera
+    clipPath rect {
+        fill: none;
+        stroke: none;
+        height: 100%;
+    }
+
+    .outline {
+      stroke: $grigio-scuro;
+      stroke-width: 2px;
+      stroke-dasharray: 3,8;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      fill:rgba(#ddd, .2);
+
+    }
+
+
+    .linea_obiettivo {
+      stroke: $grigio-chiaro;
+      stroke-width: 2px;
+      stroke-dasharray: 1,6;
+      stroke-linecap: round;
+
+    }
+
+
+    .obiettivo, #punteggio {
+
+      text {
+        //text-anchor: middle;
+        font-size: 1rem;
+        font-weight: 300;
+
+      }
+      text, .freccia {
+        fill: $grigio-scuro;
+      }
+      &.ob_scaduto {
+        @extend %obiettivo_off;
+      }
+
+      .punti {
+        font-weight: 400;
+        font-size:1.5em;
+      }
+      .scadenza {
+        font-size:.8em;
+      }
+
+    }
+    #punteggio .punti {
+      font-size:3em;
+      fill: $primary;
+    }
+
+
+    #linea_punteggio {
+      stroke: $giallo;
+      stroke-width: 8px;
+      stroke-dasharray: 1,12;
+      stroke-linecap: round;
+    }
+
+    .testo_info1, .testo_info2 {
+      opacity:1;
+      transition: opacity .4s linear;
+    }
+
+    // modifiche elementi al variare del punteggio
+    @for $i from 1 through 3 {
+      &.ob#{$i}-done {
+        .linea_obiettivo.ob#{$i} {
+          display:none;
+        }
+        .obiettivo.ob#{$i} {
+          @extend %obiettivo_off;
+        }
+      }
+    }
+    &.ob2-done {
+      .testo_info1, .testo_info2 {
+        opacity:0;
+      }
+    }
+
+  } // end svg
+}

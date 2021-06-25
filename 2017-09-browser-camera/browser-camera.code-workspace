@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+    "liveServer.settings.https": {
+      "enable": true,
+      "cert": "/Users/max/Sites/_ssl/dev.crt",
+      "key": "/Users/max/Sites/_ssl/dev.key",
+      "passphrase": "12345"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "area-test",
+  "description": "Area test",
+  "version": "1.0.0",
+  "main": "/public",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/massimo-cassandro/area-test"
+  },
+  "author": "Massimo Cassandro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/massimo-cassandro/area-test/issues"
+  },
+  "homepage": "https://github.com/area-test#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "eslint": "^7.28.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "rollup": "^2.51.1",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.34.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-twbs-bootstrap": "^2.2.0"
+  }
+}

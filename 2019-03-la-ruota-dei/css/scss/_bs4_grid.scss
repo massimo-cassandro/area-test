@@ -1,0 +1,43 @@
+// grid tools from bs4
+
+// https://hugogiraudel.com/2013/08/08/advanced-sass-list-functions/
+
+@function first($list) {
+  @return nth($list, 1);
+}
+
+@function last($list) {
+  @return nth($list, length($list));
+}
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+@mixin media-breakpoint-up($brkpt) {
+
+  $brk_keys: map_keys($breakpoints);
+
+  @if $brkpt == first($brk_keys) {
+    @content;
+
+  } @else if $brkpt == last($brk_keys) {
+
+    @media (min-width: map_get($breakpoints, $brkpt)) {
+      @content;
+    }
+
+  } @else {
+
+    $idx: index($brk_keys, $brkpt);
+    $maxWidth: map_get($breakpoints, nth($brk_keys, $idx + 1)) - 1;
+
+    @media (min-width: map_get($breakpoints, $brkpt)) and (max-width: $maxWidth) {
+      @content;
+    }
+  }
+}

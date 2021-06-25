@@ -1,0 +1,23 @@
+*~
+.DS_Store
+/**/*.mwb.bak
+
+/**/*.weblock
+
+/__codepen
+/area_test.code-workspace
+
+## ***
+/**/node_modules/
+/**/bower_components/
+*.sass-cache
+
+
+**/*.TODO
+_TODO
+**/*.weblock
+
+2021-04-keyboard
+2021-04-color-scheme-builder
+2021-04-javascript-sandbox
+bookmark-manager
