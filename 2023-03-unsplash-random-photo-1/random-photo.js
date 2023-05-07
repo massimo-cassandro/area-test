@@ -141,7 +141,7 @@ import { decode } from './blurhash/dist/esm/index.js';
       container.insertAdjacentElement('afterbegin', canvas);
 
       img.onload = () => {
-        document.querySelector('.loader-wrapper').remove();
+        document.querySelector('.loader-wrapper')?.remove();
         img.classList.add('show');
       };
 
@@ -152,7 +152,7 @@ import { decode } from './blurhash/dist/esm/index.js';
 
       credits_container.innerHTML =
         `<span>${description}
-          <a class="arrow" href="${photo.unsplash_url}?utm_source=ada&utm_medium=referral">&#8618;</a>
+          <a class="arrow" href="${photo.unsplash_url}?utm_source=test-app&utm_medium=referral">&#8618;</a>
         </span>
         <span>Photo <a href="${photo.author_profile}?utm_source=ada&utm_medium=referral">
           ${photo.author} / Unsplash
