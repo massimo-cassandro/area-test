@@ -1,0 +1,113 @@
+@import 'normalize.css';
+
+* {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+html {
+  padding: 0;
+  font-family: Karla, sans-serif;
+  font-weight: 300;
+  line-height: 1.45;
+}
+body {
+  padding: 1rem;
+  background: linear-gradient(135deg, #fefcea 0%, #c9c5a1 100%) no-repeat fixed center;
+}
+.menu {
+  text-align: center;
+}
+.deco {
+  margin: 0 .5rem;
+  img {
+    max-width: 100%;
+    height: auto;
+    opacity: .6;
+  }
+  &.small {
+    img {
+      max-width: 300px;
+    }
+  }
+}
+
+h1, h2, .subtitle {
+  font-family: 'Libre Bodoni', serif;
+  font-style: italic;
+  line-height: 1.1;
+}
+h1, h2 {
+  font-weight: 500;
+}
+h1 {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: .5rem;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, -1.5rem + 6vw, 3rem);
+
+  img {
+    width: 1em;
+    height: auto;
+
+    &:last-child {
+      rotate: .5turn;
+    }
+  }
+}
+h2 {
+  margin: 1rem 0 .5rem;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  margin: 0 0 .5rem;
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 400;
+  color: #666;
+}
+
+.big {
+  font-size: 1.2rem;
+}
+
+ul {
+  max-width: 600px;
+  padding: .5rem 0;
+  margin: 0 auto;
+  list-style: none;
+}
+li {
+  padding: .2rem 0;
+  margin: 0;
+  text-align: left;
+}
+.name-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: .4rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.name {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.dotted-line {
+  flex: 1;
+  border-bottom: 1px dotted #000;
+}
+.price {
+  font-family: 'Libre Bodoni', serif;
+  font-weight: 500;
+}
+.description {
+  font-style: italic;
+}

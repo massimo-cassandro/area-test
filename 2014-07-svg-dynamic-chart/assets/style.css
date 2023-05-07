@@ -1,0 +1,37 @@
+html,body {
+  width:100%
+}
+#map {
+  margin:1rem;
+  text-align: center;
+}
+#map svg {
+    height:800px;
+    max-height:100%;
+    width:auto;
+    max-width: 80%;
+}
+#map g {
+    fill:#ccc;
+    stroke:#333;
+    stroke-width:1;
+}
+
+#map g:hover {
+    fill:#fc0!important;
+    cursor: help;
+}
+
+.info_panel {
+    background-color: rgba(255,255,255, .8);
+    padding:5px;
+    font-size: 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    position: absolute;
+    border:1px solid #333;
+    color: #333;
+    white-space: nowrap;
+}
+.info_panel::first-line {
+    font-weight: bold;
+}

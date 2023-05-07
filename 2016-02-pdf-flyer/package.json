@@ -1,0 +1,13 @@
+{
+  "name": "pdf-flyer",
+  "version": "1.1.0",
+  "description": "A pdf flyer builder based on jsPDF",
+  "main": "flyer_builder.js",
+  "keywords": [
+    "pdf",
+    "jsPDF"
+  ],
+  "author": "Massimo Cassandro",
+  "license": "MIT"
+
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CodePen - Browser camera</title>
+    <link rel="stylesheet" href="./browser-camera.css">
+    <link rel="icon" href="data:;base64,=">
+  </head>
+
+  <body>
+
+    <h1>Browser camera</h1>
+
+    <div class="container">
+      <div>
+        <video id="video" autoplay></video>
+        <p>
+          <button id="sepia" type="button">Sepia</button>
+          <button id="bw" type="button">Black &amp; White</button>
+          <button id="reset" type="button">Reset</button>
+        </p>
+        <p>
+          <button id="snap" type="button">Snap Photo</button>
+        </p>
+      </div>
+      <div>
+        <canvas id="canvas"></canvas>
+        <p>
+          <a download="my_image.jpeg" id="download-img" href="#" onclick="return false" class="btn disabled">Get image</a>
+        </p>
+      </div>
+    </div>
+
+    <p>From: <a href="https://davidwalsh.name/browser-camera" target="_blank">https://davidwalsh.name/browser-camera</a>
+    </p>
+    <p><a href="https://davidwalsh.name/convert-canvas-image" target="_blank">https://davidwalsh.name/convert-canvas-image</a></p>
+
+    <script src="./browser-camera.js"></script>
+
+  </body>
+
+</html>

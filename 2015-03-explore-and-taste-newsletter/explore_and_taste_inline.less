@@ -1,0 +1,264 @@
+@font-family-serif  : Georgia, Times, serif;
+@font-family-sans   : Verdana, Geneva, sans-serif;
+@font-size          : 14px;
+@spacing            : @font-size/2;
+
+// colors
+@body-bg            : #333333;
+@body-color         : #efefef;
+@content-bg         : #ffffff;
+@content-color      : #333333;
+@alt-bg             : #C6401A;
+@alt-color          : #ffffff;
+@columns-bg         : #E8E5DC;
+@columns-color      : #444444;
+
+@border-thick: @alt-bg @spacing solid;
+
+body {
+	width: 100%;
+	background-color: @body-bg;
+	color: @body-color;
+	margin:0;
+	padding:0;
+	-webkit-font-smoothing: antialiased;
+	font-family: @font-family-serif;
+	line-height: 1.5;
+
+	& .deviceWidth { // desktop
+		width:600px;
+		padding:0;
+	}
+}
+
+table {
+	border-collapse: collapse;
+}
+
+p {
+	mso-table-lspace:0;
+	mso-table-rspace:0;
+	margin-top: @spacing/2;
+	margin-bottom:@spacing/2;
+}
+
+#wrapper{
+	width: 100%;
+	margin: 0 auto;
+	border:none;
+	& > tbody > tr > td {
+		background-color: @body-bg;
+		padding-top:20px;
+		padding-bottom:20px;
+		width:100%;
+		border:none;
+	}
+}
+
+.content {
+	margin: 0 auto;
+	& td {
+		background-color: @content-bg;
+		color: @content-color;
+		vertical-align: top;
+	}
+
+	& a {
+		color: @alt-bg;
+		text-decoration: underline;
+		cursor: pointer;
+
+		&:hover {
+			color: darken(@alt-bg, 15%);
+		}
+	}
+
+	&.header {
+		& > tbody > tr > td {
+			& > img {
+				display:block;
+				width:100%;
+				max-width:100%;
+				height: auto;
+				border-bottom:@border-thick;
+			}
+		}
+
+		& .summary {
+			& td {
+				background-color: @body-bg;
+				color: #efefef;
+				font-size:@font-size/1.4;
+				padding-bottom: @spacing;
+				font-family: @font-family-sans;
+				line-height: 1.1;
+				& img {
+					margin-right:20px;
+				}
+				& p {
+					margin:0;
+					&.summary-link {
+						text-align: right;
+						& a {
+							color: @body-color;
+						}
+					}
+				}
+
+			}
+		}
+		& .nav {
+			& td {
+				text-align: center;
+				vertical-align: middle;
+				background-color: @alt-bg;
+				font-size:@font-size * 1.1;
+				font-family: @font-family-sans;
+				line-height: 1;
+				padding-top: @spacing*1.5;
+				padding-bottom: @spacing*1.5;
+				padding-left:@spacing/2;
+				padding-right:@spacing/2;
+				font-weight: bold;
+
+				& a {
+					color: @alt-color;
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+
+	}
+
+	&.footer {
+		& td {
+			background-color: @alt-bg;
+			color: @alt-color;
+			padding:10px;
+			font-size:@font-size * .8;
+			font-family: @font-family-sans;
+
+			& .social_icons {
+				& a {
+					margin-right:10px;
+				}
+			}
+
+			& a {
+				color: @alt-color;
+				text-decoration: none;
+			}
+		}
+	}
+
+	&.body {
+		& td {
+			padding:10px;
+
+			& h1 {
+				font-size:@font-size * 1.8;
+				font-weight: bold;
+				margin-top:0;
+				margin-bottom:@spacing;
+			}
+
+			& p {
+				font-style: italic;
+				font-size:@font-size * 1.3;
+			}
+
+		}
+	}
+
+	&.columns-wrapper {
+		& td.column-spacer {
+			width:20px;
+			padding:0;
+		}
+
+		& td.column-width {
+			width:180px;
+			padding-top:0px;
+			padding-bottom:20px;
+			padding-left:0;
+			padding-right: 0;
+		}
+
+		& .column-content {
+			width:100%;
+			& td {
+				padding-top:10px;
+				padding-bottom:10px;
+				padding-left::10px;
+				padding-right::10px;
+				background-color: @columns-bg;
+				color: @columns-color;
+
+				&.column-header {
+					border-top: @border-thick;
+					padding-bottom:0px;
+				}
+
+				& img {
+					display:block;
+					max-width:100%;
+					height: auto;
+					width:100%;
+				}
+
+				& h2 {
+					margin-top: 5px;
+					font-weight: normal;
+					font-style: italic;
+					font-size:@font-size*1.2;
+					line-height: 1.3;
+					font-family: @font-family-serif;
+				}
+				& .text {
+					font-weight: normal;
+					font-style: normal;
+					font-family: @font-family-serif;
+					font-size:@font-size;
+				}
+				.price {
+					text-align: center;
+					font-size: @font-size * 3;
+					font-weight: normal;
+					font-style: normal;
+					font-family: @font-family-serif;
+					margin-top: @spacing;
+					margin-bottom: @spacing * 2;
+					line-height: 1;
+
+					& .currency-sign {
+						font-size: 40%;
+						//vertical-align:super;
+						color:lighten(@columns-color, 15%);
+						margin-right: 5px;
+					}
+				}
+
+				.buttons {
+					background-color: @alt-bg;
+					//border:1px solid #1e3650;
+					//border-radius:8px;
+					color:@content-bg;
+					display:block;
+					font-family:sans-serif;
+					font-size:@font-size*1.1;
+					font-style: italic;
+					font-weight:bold;
+					line-height:40px;
+					text-align:center;
+					text-decoration:none;
+					width:100%;
+					//mso-hide:all;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,140 @@
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+canvas {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  font-size: 1.2rem;
+  color: #999;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .3s linear;
+}
+
+.container img.show {
+  opacity: 1;
+}
+
+.message, .credits {
+  color: #fff;
+  background-color: rgba(0 0 0 / .7);
+}
+.message {
+  position: absolute;
+  bottom: 30%;
+  left: 0;
+  padding: .5rem 3rem;
+}
+.message h1 {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.credits {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding: .2rem 1rem;
+  font-size: .8rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.credits a {
+  color: #fc0;
+  text-decoration: none;
+}
+
+.credits a:hover {
+  text-decoration: underline;
+}
+
+
+/* https://wweb.dev/resources/loader-generator/ */
+
+:root {
+  --loader-color: #999;
+}
+
+.loader-wrapper {
+  position: absolute;
+  top:50%;
+  left: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+.loader {
+  width: 100px;
+  aspect-ratio: 1;
+  background: conic-gradient(#0000, var(--loader-color)) content-box;
+  border-radius: 50%;
+
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-mask:
+    repeating-conic-gradient(
+      #0000 0deg,
+      #000 1deg calc(360deg/10 - 10deg - 1deg),
+      #0000 calc(360deg/10 - 10deg) calc(360deg/10)
+    ),
+    radial-gradient(
+      farthest-side,
+      #0000 calc(98% - 10px),
+      #000 calc(100% - 10px)
+    );
+  mask:
+    repeating-conic-gradient(
+      #0000 0deg,
+      #000 1deg calc(360deg/10 - 10deg - 1deg),
+      #0000 calc(360deg/10 - 10deg) calc(360deg/10)
+    ),
+    radial-gradient(
+      farthest-side,
+      #0000 calc(98% - 10px),
+      #000 calc(100% - 10px)
+    );
+
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+  animation: spin 1000ms infinite steps(10);
+}
+@keyframes spin { to { transform: rotate(1turn) } }
+
+.arrow {
+  position: relative;
+  top: 3px;
+  opacity: 0;
+}
+.credits:hover .arrow {
+  opacity:1;
+}

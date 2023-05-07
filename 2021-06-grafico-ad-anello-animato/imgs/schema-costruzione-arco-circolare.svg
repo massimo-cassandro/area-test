@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="502" height="500">
+  <g fill="none" fill-rule="evenodd" font-family="monospace">
+    <path fill="#EFEFEF" d="M28 24.5H478V474.5H28z" />
+    <path fill="#F7B500" opacity=".226" d="M252 250L417 97 417 250" />
+    <path stroke="#999" stroke-dasharray="5 3" stroke-linecap="square" d="M416.5 83.5L416.5 261.5" /><text fill="#999"
+      font-size="14">
+      <tspan x="256" y="110">Py</tspan>
+    </text><text fill="#999" font-size="14">
+      <tspan x="421" y="247">Px</tspan>
+    </text>
+    <path stroke="#999" stroke-dasharray="5 3" stroke-linecap="square" d="M244.5 96.5L429.5 96.5" />
+    <circle cx="27.5" cy="24.5" r="5.5" stroke="#666" stroke-linecap="square" />
+    <circle cx="252" cy="250" r="225" stroke="#6DD400" stroke-linecap="square" />
+    <path fill="#C4E6A0"
+      d="M298.994 249.232c-.15-9.274-5.037-18.367-11.497-26.2l-.752-.898c-.885-1.042-2.337-1.726-2.745-2.134l-32 30 46.994-.768z" />
+    <path stroke="#6DD400" stroke-dasharray="10 5" stroke-linecap="square" d="M244.994 256.993L440.223 74.167" />
+    <path stroke="#6DD400" stroke-linecap="square" d="M2.5 250L501.5 250" />
+    <path stroke="#6DD400" stroke-linecap="square" transform="rotate(90 252 250)" d="M2.5 250L501.5 250" />
+    <path fill="#000" fill-rule="nonzero"
+      d="M423.98 90.352c3.176 3.527 3.222 8.779.315 12.348 18.36 21.377 32.366 45.652 41.607 71.76a226.613 226.613 0 0 1 12.814 67.375c4.557.649 8.087 4.538 8.147 9.284a9.5 9.5 0 1 1-18.999.24c-.06-4.725 3.342-8.688 7.851-9.477a223.588 223.588 0 0 0-12.641-66.421c-9.11-25.742-22.916-49.677-41.015-70.76a9.5 9.5 0 1 1 1.92-14.349zm53.606 154.391l-.832.025a6.5 6.5 0 1 0 .832-.025zM412.57 91.879a6.5 6.5 0 0 0 8.012 10.202l1.145-.996a6.5 6.5 0 0 0-9.157-9.206z" />
+    <path fill="#666" fill-rule="nonzero"
+      d="M453.643 112.59l.815.355 8.413 3.67.458.2-.4.916-.458-.2-6.664-2.907 3.639 4.816c16.68 22.84 28.732 48.237 35.835 75.077l.33 1.259.125.484-.969.25-.125-.484c-6.917-26.765-18.766-52.11-35.224-74.922l-.775-1.068-3.634-4.81.977 7.205.067.496-.991.134-.067-.495-1.232-9.096-.12-.88z" />
+    <text fill="#666" font-size="22">
+      <tspan x="69.5" y="43">svg</tspan>
+    </text><text fill="#6236FF" font-size="22">
+      <tspan x="230" y="272">C</tspan>
+    </text>
+    <circle cx="252" cy="250" r="7" stroke="#6236FF" stroke-linecap="square" /><text fill="#E02020"
+      font-size="22">
+      <tspan x="354" y="288">r</tspan>
+    </text><text fill="#E02020" font-size="18">
+      <tspan x="100" y="182">r • sin(𝛼)</tspan>
+    </text><text fill="#E02020" font-size="18">
+      <tspan x="280" y="56">r • cos(𝛼)</tspan>
+    </text>
+    <path fill="#E02020" fill-rule="nonzero"
+      d="M478 275h-1v-4H253v4h-1v-9h1v4h224v-4h1v9zM417 74h-1v-4H253v4h-1v-9h1v4h163v-4h1v9zM208 250v-1h4V100h-4v-1h9v1h-4v149h4v1h-9z" />
+    <text fill="#000" font-size="22">
+      <tspan x="275" y="243">𝛼</tspan>
+    </text><text fill="#000" font-size="22">
+      <tspan x="483" y="236">I</tspan>
+    </text><text fill="#000" font-size="22">
+      <tspan x="428" y="94">P</tspan>
+    </text><text fill="#000" font-size="12">
+      <tspan x="256" y="493">270°</tspan>
+    </text><text fill="#000" font-size="12">
+      <tspan x="488" y="265">0°</tspan>
+    </text><text fill="#000" font-size="12">
+      <tspan x="255" y="14">90°</tspan>
+    </text><text fill="#000" font-size="12">
+      <tspan x="32" y="38">0,0</tspan>
+    </text><text fill="#000" font-size="12">
+      <tspan x="-1" y="247">180°</tspan>
+    </text>
+    <path fill="#666" fill-rule="nonzero" d="M27.8 15v284.888H31l-3.5 7-3.5-7h3.2V15.001h.6z" />
+    <path fill="#666" fill-rule="nonzero" d="M264.088 21l7 3.5-7 3.5v-3.2H18v-.6h246.088V21z" /><text fill="#999"
+      font-size="12">
+      <tspan x="400" y="42">sin(𝛼) &gt; 0</tspan>
+      <tspan x="400" y="60">cos(𝛼) &gt; 0</tspan>
+    </text><text fill="#999" font-size="12">
+      <tspan x="33" y="437">sin(𝛼) &lt; 0</tspan>
+      <tspan x="33" y="455">cos(𝛼) &lt; 0</tspan>
+    </text><text fill="#999" font-size="12">
+      <tspan x="400" y="437">sin(𝛼) &gt; 0</tspan>
+      <tspan x="400" y="455">cos(𝛼) &lt; 0</tspan>
+    </text><text fill="#999" font-size="12">
+      <tspan x="39" y="66">sin(𝛼) &lt; 0</tspan>
+      <tspan x="39" y="84">cos(𝛼) &gt; 0</tspan>
+    </text>
+    <circle cx="251.5" cy="96.5" r="2.5" fill="#999" />
+    <circle cx="416.5" cy="249.5" r="2.5" fill="#999" />
+  </g>
+</svg>

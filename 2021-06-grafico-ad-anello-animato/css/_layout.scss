@@ -1,0 +1,65 @@
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+body {
+  padding: 2rem;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start; // multiline container
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+
+  // >div {
+  //   flex: 0;
+  // }
+  h2 + p {
+    min-height: 50px;
+  }
+}
+
+pre {
+  white-space: pre-line;
+}
+
+
+h2 {
+  margin-top: 3rem;
+}
+p {
+  margin-top: 0;
+}
+
+.dati-arco {
+  margin: 0 0 .3rem;
+  font-size: 80%;
+  // code {
+  //   display: block;
+  //   margin-left: 1rem;
+  // }
+}
+
+// .commento {
+//   font-size: 75%;
+//   font-style: italic;
+//   color: #666;
+// }
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: .3rem 1rem;
+  vertical-align: top;
+  border-bottom: 1px solid #666;
+}

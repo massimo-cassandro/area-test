@@ -1,0 +1,43 @@
+$clipart_size: 6rem;
+$cliparts-margin:.5rem;
+
+.cliparts-list {
+
+  display: grid;
+	grid-gap: $cliparts-margin * 2;
+	grid-template-columns: repeat(auto-fill, $clipart_size * 1.2);
+  grid-template-rows: auto;
+  justify-content: space-between;
+  justify-items: center;
+
+  .clipart {
+    border:1px solid $grigio;
+    border-radius: $border-radius;
+    text-align: center;
+    padding: $cliparts-margin;
+    transition: transform 400ms ease-out;
+
+    &:hover {
+    	transform: scale(1.15);
+    	border-color: $rosso;
+    }
+  }
+
+  svg {
+    width: $clipart_size;
+    height:$clipart_size;
+    //margin: $cliparts-margin;
+    background: transparent;
+    fill: #333;
+    display:block;
+  }
+
+  .clipart-dida {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 80%;
+    margin:.3rem 0 0;
+  }
+}

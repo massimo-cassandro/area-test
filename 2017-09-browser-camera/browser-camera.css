@@ -1,0 +1,51 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+.container > div {
+  padding: 0 0.5rem;
+  text-align: center;
+}
+
+video, canvas {
+  background-color: #efefef;
+  display: block;
+  width:480px;
+  height:400px;
+  margin:0 auto;
+}
+
+video.sepia {
+  filter: grayscale(0%) sepia(60%);
+}
+video.bw {
+  filter: grayscale(100%) sepia(0%);
+}
+
+h1, p {
+  text-align: center;
+}
+
+button, .btn {
+  font-size: 18px;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  text-decoration: none;
+  background: #fff;
+  color: #333;
+}
+button.disabled, .btn.disabled {
+  color: #ccc;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+button:not(.disabled):hover, .btn:not(.disabled):hover {
+  background: #c00;
+  color: #fff;
+}

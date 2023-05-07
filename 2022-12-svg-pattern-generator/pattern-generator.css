@@ -1,0 +1,72 @@
+main {
+  padding: 2rem 0;
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+.pattern-container {
+  height: 0;
+  overflow: hidden;
+}
+
+.pattern-construction svg {
+  width: 16rem;
+  height: auto;
+  outline: 1px dotted #3700ff;
+}
+.pattern-construction rect {
+  outline: 1px dotted #c00;
+}
+
+.patterns-display {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.patterns-display > div{
+  display: flex;
+  flex-flow: column wrap;
+  gap: .5rem;
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+
+.pattern-path {
+  margin: 2rem 0;
+}
+.pattern-path span {
+  font-family: monospace;
+  color: #c00;
+  white-space: pre;
+}
+
+.controls {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+  align-items: flex-end;
+}
+.controls > div {
+  flex-basis: 10rem;
+}
+.form-control[type='color'] {
+  height: 2.4rem;
+}
+.col-form-label {
+  font-size: .85rem;
+  font-weight: 700;
+}
+/* .controls .color-input {
+  flex-basis: 12rem;
+} */
+.color-input [type='text'] {
+  flex-basis: 65%;
+  font-family: monospace;
+}
+.color-input [type='color'] {
+  flex-basis: 35%;
+}

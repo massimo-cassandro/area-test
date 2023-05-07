@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Flyer builder</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="flyer_builder.css" type="text/css" media="all">
+  <link rel="icon" href="data:;base64,=">
+</head>
+<body>
+  <div class="container-fluid flyer-builder">
+
+    <div class="row">
+      <div class="col-sm-6">
+
+        <h1>Flyer Builder</h1>
+
+        <p><em>Updated May 2020</em></p>
+        <p>Source at <a href="https://github.com/massimo-cassandro/area-test/tree/main/2016-02-pdf-flyer">github.com/massimo-cassandro/area-test/tree/main/2016-02-pdf-flyer</a></p>
+        <p>Full description at <a href="https://www.sitepoint.com/generating-pdfs-from-web-pages-on-the-fly-with-jspdf/">my Sitepoint article</a></p>
+
+
+        <div class="form-group">
+          <label for="flyer-image">Image</label>
+          <input id="flyer-image" type="file" accept=".jpeg, .jpg, .png">
+        </div>
+
+        <div class="row">
+          <div class="col-sm-7">
+            <div class="form-group">
+              <label for="flyer-title">Title</label>
+              <input required class="form-control" id="flyer-title" placeholder="Main title" value="Really incredible!!" maxlength="255" type="text">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="flyer-title-size">Size (pt)</label>
+              <input required class="form-control" id="flyer-title-size" value="60" min="1" step="1" type="number" title="Title size: tune it to fit the available space">
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label for="flyer-title-color">Color</label>
+              <input required class="form-control" id="flyer-title-color" value="#0080FF" type="color" title="Title color">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="flyer-description">Description</label>
+          <textarea class="form-control" id="flyer-description"  placeholder="Insert a short description taking care of the available space">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, nihil officia neque ad expedita consequatur quae! Voluptate, incidunt, earum, sit, eveniet harum ratione expedita quibusdam possimus sed laboriosam dolore ut recusandae eos. Ipsa, natus pariatur iste dolorum optio nostrum consectetur!</textarea>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="flyer-price">Price</label>
+              <input required class="form-control" id="flyer-price" placeholder="Enter price (w/o decimals)" value="100"  type="number" tabindex="5" step="any" min="0">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="flyer-price-currency">Currency</label>
+              <select required class="form-control" id="flyer-price-currency" tabindex="6">
+                <option value="&euro;">&euro;</option>
+                <option value="$">$</option>
+                <option value="&pound;">&pound;</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label for="flyer-price-color">Color</label>
+              <input required class="form-control" id="flyer-price-color" value="#cc0000" type="color" tabindex="8" title="Price color">
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <button id="flyer_preview_btn" type="button" class="btn btn-primary btn-block" tabindex="9">Update preview</button>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group text-right">
+              <button id="flyer_download_btn" type="button" class="btn btn-secondary btn-xs btn-block" tabindex="10">Download</button>
+             </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-6">
+        <embed id="pdf_preview" type="application/pdf" src=""></embed>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+  <script type="text/javascript" src="flyer_builder.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+body {
+  padding: 2rem;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+.container h2 + p {
+  min-height: 50px;
+}
+
+pre {
+  white-space: pre-line;
+}
+
+h2 {
+  margin-top: 3rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+.dati-arco {
+  margin: 0 0 0.3rem;
+  font-size: 80%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 0.3rem 1rem;
+  vertical-align: top;
+  border-bottom: 1px solid #666;
+}
+
+.donut-chart {
+  width: 400px;
+  height: 400px;
+  margin: 1rem 0;
+  background-color: #ddd;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(255, 255, 255, 0.3) 25px, rgba(255, 255, 255, 0.3) 50px);
+}
+.donut-chart path {
+  fill: none;
+}
+.donut-chart .chart-arc {
+  fill: none;
+  stroke-linecap: butt;
+}
+.donut-chart .chart-arc:not([stroke]) {
+  stroke: #666;
+}
+.donut-chart .base-circle {
+  fill: none;
+  stroke: #ccc;
+}
+
+.ref-circle {
+  fill: none;
+  stroke: #000;
+  stroke-dasharray: 10 3;
+}
+
+.chart-ref-lines {
+  fill: none;
+  stroke: #a20795;
+  stroke-width: 0.5px;
+  stroke-dasharray: 10 1;
+}
+
+.chart-ref-text {
+  font-family: sans-serif;
+  font-size: 5px;
+  fill: #a20795;
+}
+
+/*# sourceMappingURL=demo.css.map */

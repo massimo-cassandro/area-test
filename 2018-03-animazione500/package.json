@@ -1,0 +1,32 @@
+{
+  "name": "animazione-500",
+  "description": "Animazione 500",
+  "version": "1.0.0",
+  "main": "animazione500.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/massimo-cassandro/area-test"
+  },
+  "author": "Massimo Cassandro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/massimo-cassandro/area-test/issues"
+  },
+  "stylelint": {
+    "extends": "../node_modules/@massimo-cassandro/linters-config/stylelintrc.js",
+    "ignoreFiles": [
+      "**/*.css"
+    ],
+    "rules": {}
+  },
+   "eslintConfig": {
+    "extends": "../node_modules/@massimo-cassandro/linters-config/eslintrc.js",
+    "ignorePatterns": [],
+    "rules": {}
+  },
+  "dependencies": {
+    "pug": "^3.0.2",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.38.0"
+  }
+}

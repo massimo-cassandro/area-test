@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="dist/demo.css" type="text/css" media="all">
+    <link rel="icon" href="data:;base64,=">
+    <title>Grafico ad anello con animazione</title>
+  </head>
+  <body>
+    <h1>Grafico ad anello con animazione</h1>
+
+    <div class="container">
+
+      <div class="chart-container">
+        <h2>Grafico di riferimento</h2>
+        <p>Costruito manualmente. <br>In nero, tratteggiato, il cerchio di riferimento</p>
+        <svg class="donut-chart" viewBox="-3 -3 106 106" xmlns="http://www.w3.org/2000/svg">
+          <circle class="base-circle" stroke-width="6" cx="50" cy="50" r="50"/>
+          <path d="M100,50 A50,50 0 0 0 50,0" stroke-width="6" stroke="#c00" fill="none"/>
+          <path d="M50,0 A50,50 0 0 0 0,50" stroke-width="6" stroke="#105ebc" fill="none"/>
+
+          <!-- Anello interno al precedente (raggio - 6px)-->
+          <path d="M94,50 A44,44 0 1 0 50,94" stroke-width="6" stroke="#18a306" fill="none"/>
+
+          <!-- 3º anello -->
+          <path d="M50,12 A38,38 0 1 1 23.1299,23.1299" stroke-width="6" stroke="#ba7910" fill="none"/>
+
+          <!-- cerchio di riferimento -->
+          <circle class="ref-circle" stroke-width="1" cx="50" cy="50" r="50"/>
+
+          <!-- riferimenti -->
+          <line class="chart-ref-lines" x1="50" y1="-10" x2="50" y2="110"></line>
+          <line class="chart-ref-lines" x1="-10" y1="50" x2="110" y2="50"></line>
+          <text x="70" y="48" class="chart-ref-text">0°</text>
+          <text x="52" y="30" class="chart-ref-text">90°</text>
+          <text x="30" y="48" class="chart-ref-text">180°</text>
+          <text x="52" y="70" class="chart-ref-text">270°</text>
+
+        </svg>
+        <p><small>NB: l'anello interno è disegnato in senso orario, a partire da 90°,<br>
+          gli altri in senso antiorario a partire da 0° (default)</small></p>
+      </div>
+
+      <div class="chart-container">
+        <h2>Grafico dinamico</h2>
+        <p>Con aggiunta di linecaps simulati. Origine da 0°</p>
+        <div id="donut-chart"></div>
+      </div>
+
+      <div class="chart-container">
+        <h2>Ruotato</h2>
+        <p>Come il precedente + Origine da 90°</p>
+        <div id="donut-chart-rotated"></div>
+      </div>
+
+      <div class="chart-container">
+        <h2>Ruotato + senso orario</h2>
+        <p>Come il precedente + andamento in senso orario,<br>senza linecaps simulati</p>
+        <div id="donut-chart-rotated-clockwise"></div>
+      </div>
+
+      <div class="chart-container">
+        <h2>Grafico dinamico animato</h2>
+        <p>Come il precedente + animazione</p>
+        <div id="donut-chart-animated"></div>
+        <p>
+          <button type="button" class="avvia-animazione">Riavvia animazione</button>
+        </p>
+      </div>
+
+    </div>
+
+    <ul>
+      <li><a target="_blank" href="https://svg-path-visualizer.netlify.app">https://svg-path-visualizer.netlify.app</a></li>
+      <li><a target="_blank" href="https://yqnn.github.io/svg-path-editor/">https://yqnn.github.io/svg-path-editor/</a></li>
+    </ul>
+
+
+    <h2>Costruzione</h2>
+    <div class="container">
+      <img src="./imgs/schema-costruzione-arco-circolare.svg" width="500"
+      <div>
+        <pre>
+          Dimensioni SVG = 2<em>r</em> × 2<em>r</em>
+          coordinate del centro = Cx, Cy = <em>r</em>, <em>r</em>
+          angolo punto I = 0
+          angolo punto P = &#120572;
+          coordinate punto I = <em>r</em> + <em>r</em> cos(0), <em>r</em> - <em>r</em> sin(0) = 2<em>r</em>, 0
+          coordinate punto P = <em>r</em> + <em>r</em> cos(&#120572;), <em>r</em> - <em>r</em> sin(&#120572;)
+        </pre>
+      </div>
+    </div>
+
+    <div>
+      <p>
+        <strong>Costruzione attributo <code>d</code> del tag <code>path</code>:</strong>
+        <pre>d="<strong>M</strong>Ix,Iy <strong>A</strong>Cx,Cy <em>rotazioneX large-arc-flag sweep-flag</em> Px,Py"</pre>
+      </p>
+      <p>
+        <strong>Risultato:</strong>
+        <pre>d="<strong>M</strong><em>r</em>,0 <strong>A</strong><em>r</em>,<em>r</em> 0 0 1 <em>r</em>+<em>r</em>∙cos(&#120572;), <em>r</em>-<em>r</em>∙sin(&#120572;)"</pre>
+      </p>
+
+
+      <p>In cui:</p>
+      <table>
+        <tr>
+          <td><code><strong>M</strong>Ax,Ay</code></td>
+          <td>Punto di invio (M=Move)<br>
+            In questo caso: <code>Ix = <em>r</em>; Iy = 0</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code><strong>A</strong>Cx,Cy</code></td>
+          <td>Inizio definizione curva (A=Elliptical Arc Curve): coordinate del centro della curva<br>
+            In questo caso: <code>Cx = <em>r</em>; Cy = <em>r</em></code>
+          </td>
+        </tr>
+        <tr>
+          <td><code><em>rotazioneX</em></code></td>
+          <td>Rotazione in gradi dell'ellisse rispetto all'asse X<br>
+            In questo caso: <code><em>rotazioneX</em> = 0</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code><em>large-arc-flag</em></code> e <code><em>sweep-flag</em></code></td>
+          <td>Determinano quale dei 4 possibili archi passanti per i due punti dati vada disegnato.<br>
+            In questo caso: <code><em>large-arc-flag</em> = 0</code> e <code><em>sweep-flag</em> = 0</code><br>
+            Vedi <a target="_blank" href="https://www.sitepoint.com/closer-look-svg-path-data/#elliptical-arc">https://www.sitepoint.com/closer-look-svg-path-data/#elliptical-arc</a>
+          </td>
+        </tr>
+        <tr>
+          <td><code>Px,Py</code></td>
+          <td>Coordinate del punto finale della curva<br>
+            In questo caso: <code>Px = <em>r</em> + <em>r</em> • cos(&#120572;); Py = <em>r</em> - <em>r</em> • sin(&#120572;)</code>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+
+
+    <h2>Riferimenti</h2>
+    <ul>
+      <li><a target="_blank" rel="noopener noreferrer" href="https://codepen.io/AmeliaBR/pen/kAIzf">https://codepen.io/AmeliaBR/pen/kAIzf</a></li>
+      <li><a target="_blank" rel="noopener noreferrer" href="http://xahlee.info/js/svg_circle_arc.html">http://xahlee.info/js/svg_circle_arc.html</a></li>
+      <li><a target="_blank" rel="noopener noreferrer" href="https://css-tricks.com/svg-path-syntax-illustrated-guide/">https://css-tricks.com/svg-path-syntax-illustrated-guide/</a></li>
+      <li><a target="_blank" rel="noopener noreferrer" href="https://massimo-cassandro.github.io/area-test/2016-svg/donut-chart.html">https://massimo-cassandro.github.io/area-test/2016-svg/donut-chart.html</a></li>
+      <li><a target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#elliptical_arc_curve">https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#elliptical_arc_curve</a></li>
+      <li><a target="_blank" rel="noopener noreferrer" href="https://www.sitepoint.com/closer-look-svg-path-data/">https://www.sitepoint.com/closer-look-svg-path-data/</a></li>
+      <li><a target="_blank" rel="noopener noreferrer" href="https://codepen.io/AmeliaBR/pen/pIder">https://codepen.io/AmeliaBR/pen/pIder</a></li>
+      <li><a target="_blank" rel="noopener noreferrer" href="https://codepen.io/AmeliaBR/pen/LjHov">https://codepen.io/AmeliaBR/pen/LjHov</a></li>
+      <li><a target="_blank" rel="noopener noreferrer" href="https://www.sarasoueidan.com/blog/svg-coordinate-systems/">https://www.sarasoueidan.com/blog/svg-coordinate-systems/</a></li>
+      <li><a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/questions/21816286/svg-arc-how-to-determine-sweep-and-larg-arc-flags-given-start-end-via-point">https://stackoverflow.com/questions/21816286/svg-arc-how-to-determine-sweep-and-larg-arc-flags-given-start-end-via-point</a></li>
+    </ul>
+
+    <script src="js/demo.js" type="module"></script>
+  </body>
+</html>

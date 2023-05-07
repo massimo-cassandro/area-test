@@ -1,0 +1,16 @@
+*~
+.DS_Store
+/**/*.mwb.bak
+
+/**/*.weblock
+
+/__codepen
+/area_test.code-workspace
+
+## ***
+/**/node_modules/
+/**/bower_components/
+*.sass-cache
+
+
+**/*.webloc

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Data Provider Test</title>
+    <link rel="icon" href="data:;base64,=">
+    <style>
+      #data {
+        font-family: monospace;
+        white-space: pre;
+        margin: 1rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Data Provider Test</h1>
+    <div id="data"></div>
+
+    <script type="module">
+      import getData from '../src/google-sheets-data-provider.js';
+      getData()
+        .then( result =>
+          document.getElementById('data').innerText = JSON.stringify(result, null, 2)
+        );
+    </script>
+  </body>
+</html>

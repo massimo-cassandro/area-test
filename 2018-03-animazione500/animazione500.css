@@ -1,0 +1,98 @@
+body {
+  font-family: 'Titillium Web', Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+  padding: 1rem;
+}
+
+.wrapper-500 > svg.ob3-done .obiettivo.ob3 text, .wrapper-500 > svg.ob2-done .obiettivo.ob2 text, .wrapper-500 > svg.ob1-done .obiettivo.ob1 text, .wrapper-500 > svg .obiettivo.ob_scaduto text, .wrapper-500 > svg #punteggio.ob_scaduto text, .wrapper-500 > svg.ob3-done .obiettivo.ob3 .freccia, .wrapper-500 > svg.ob2-done .obiettivo.ob2 .freccia, .wrapper-500 > svg.ob1-done .obiettivo.ob1 .freccia, .wrapper-500 > svg .obiettivo.ob_scaduto .freccia, .wrapper-500 > svg #punteggio.ob_scaduto .freccia {
+  fill: rgba(102, 102, 102, 0.7);
+}
+
+.wrapper-500 {
+  text-align: center;
+}
+
+.wrapper-500 > svg {
+  height: auto;
+  width: 100%;
+  max-width: 850px;
+}
+
+.wrapper-500 > svg clipPath, .wrapper-500 > svg image {
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper-500 > svg clipPath rect {
+  fill: none;
+  stroke: none;
+  height: 100%;
+}
+
+.wrapper-500 > svg .outline {
+  stroke: #444;
+  stroke-width: 2px;
+  stroke-dasharray: 3,8;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  fill: rgba(221, 221, 221, 0.2);
+}
+
+.wrapper-500 > svg .linea_obiettivo {
+  stroke: #666;
+  stroke-width: 2px;
+  stroke-dasharray: 1,6;
+  stroke-linecap: round;
+}
+
+.wrapper-500 > svg .obiettivo text, .wrapper-500 > svg #punteggio text {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.wrapper-500 > svg .obiettivo text, .wrapper-500 > svg .obiettivo .freccia, .wrapper-500 > svg #punteggio text, .wrapper-500 > svg #punteggio .freccia {
+  fill: #444;
+}
+
+.wrapper-500 > svg .obiettivo .punti, .wrapper-500 > svg #punteggio .punti {
+  font-weight: 400;
+  font-size: 1.5em;
+}
+
+.wrapper-500 > svg .obiettivo .scadenza, .wrapper-500 > svg #punteggio .scadenza {
+  font-size: .8em;
+}
+
+.wrapper-500 > svg #punteggio .punti {
+  font-size: 3em;
+  fill: #036;
+}
+
+.wrapper-500 > svg #linea_punteggio {
+  stroke: #fc0;
+  stroke-width: 8px;
+  stroke-dasharray: 1,12;
+  stroke-linecap: round;
+}
+
+.wrapper-500 > svg .testo_info1, .wrapper-500 > svg .testo_info2 {
+  opacity: 1;
+  transition: opacity .4s linear;
+}
+
+.wrapper-500 > svg.ob1-done .linea_obiettivo.ob1 {
+  display: none;
+}
+
+.wrapper-500 > svg.ob2-done .linea_obiettivo.ob2 {
+  display: none;
+}
+
+.wrapper-500 > svg.ob3-done .linea_obiettivo.ob3 {
+  display: none;
+}
+
+.wrapper-500 > svg.ob2-done .testo_info1, .wrapper-500 > svg.ob2-done .testo_info2 {
+  opacity: 0;
+}
+/*# sourceMappingURL=animazione500.css.map */

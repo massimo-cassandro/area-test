@@ -1,0 +1,25 @@
+body {
+  font-family: "Lobster", cursive;
+  color: black;
+  padding:1rem;
+}
+canvas {
+  display: block;
+  margin:1rem auto;
+  border: 1px solid #000;
+}
+
+.text-center {
+  text-align: center;
+  margin:1rem 0;
+}
+
+label {
+  font-size: .9rem;
+  font-weight: bold;
+}
+input, button {
+  padding:3px 4px;
+  font-size:1.1rem;
+  border:1px solid #999;
+}

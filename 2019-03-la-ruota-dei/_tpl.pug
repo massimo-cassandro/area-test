@@ -1,0 +1,68 @@
+- var vers = '1.0.4'
+doctype html
+html(lang="it")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    //- base(href="/la-ruota-dei/")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bevan|Carter+One")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css")
+    link(rel="stylesheet" href="css/la-ruota-dei.css?v=" + vers type="text/css" media="all")
+
+    link(rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png")
+    link(rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png")
+    link(rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png")
+    link(rel="manifest" href="favicon/site.webmanifest")
+    link(rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#407bbf")
+    link(rel="shortcut icon" href="favicon/favicon.ico")
+    meta(name="msapplication-TileColor" content="#ffc40d")
+    meta(name="msapplication-config" content="favicon/browserconfig.xml")
+    meta(name="theme-color" content="#ffffff")
+
+    title
+      block title
+        |La ruota dei&hellip;
+  body
+    header.mb-3.border-bottom.border-secondary
+      .container.pt-3.pb-2
+        .row
+          .col-md-6
+            h1.font-weight-bold.font-italic La ruota dei&hellip;
+          .col-md-6.text-right
+            //-a(href="index.html") Due dischi
+            //-br
+            //-a(href="tre-dischi.html") Tre dischi
+
+    #svg-wrapper.container
+      block svg_wrapper
+
+    main.container.my-3
+      div.mb-3.text-right
+        .btn-group.btn-group-sm(role="group")
+          button.btn-store_settings.btn.btn-outline-primary(title="Salve le impostazioni localmente nel tuo browser") Aggiorna disco e salva impostazioni
+          button.btn-print.btn.btn-primary(title="Salve le impostazioni localmente nel tuo browser e apre la finestra di stampa") Aggiorna, salva &amp; Stampa
+
+      h2
+        block page_title
+
+      h3 Impostazioni generali
+      #settings
+        block settings
+
+      h3 Seleziona le immagini
+      .cliparts-info.small.mb-4
+        block cliparts_info
+
+      section.cliparts-selected-wrapper
+      .row.mb-4
+        .col-6
+          button.btn-reset-clips.btn.btn-secondary.btn-sm Reset
+        .col-6.text-right
+          button.btn-store_settings.btn.btn-outline-primary.btn-sm Aggiorna disco e salva impostazioni
+
+      section.cliparts-list
+
+    footer.border-top.border-secondary.text-center.py-2.small
+      a(href="https://github.com/massimo-cassandro/area-test/tree/main/2019-03-la-ruota-dei" title="GitHub Repository")
+        include ./assets/github.svg
+    script(src="js/la-ruota-dei-min.js?v=" + vers)

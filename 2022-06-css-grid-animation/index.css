@@ -1,0 +1,33 @@
+.grid {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(80px, 1fr));
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+  justify-items: stretch;
+  max-width: 600px;
+  margin: 1rem auto;
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: #de11f9;
+  transition: transform .2s linear;
+}
+
+.row-2 {
+  background-color: #0b71ed;
+}
+
+/* +++++++++++++ */
+
+p {
+  text-align: center;
+}
+

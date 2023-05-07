@@ -1,0 +1,39 @@
+{
+  "name": "area-test",
+  "description": "Dev test area",
+  "version": "1.6.0",
+  "scripts": {
+    "local test server": "python3 -m http.server",
+    "php server": "php -S localhost:8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/massimo-cassandro/area-test"
+  },
+  "author": "Massimo Cassandro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/massimo-cassandro/area-test/issues"
+  },
+  "browserslist": [
+    "last 2 version",
+    "iOS >= 13",
+    "Safari >= 12",
+    "not ie <= 11",
+    "> 3% in IT"
+  ],
+  "stylelint": {
+    "extends": [
+      "@massimo-cassandro/linters-config/stylelintrc.js"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@massimo-cassandro/linters-config/eslintrc.js"
+    ]
+  },
+  "homepage": "https://github.com/area-test#readme",
+  "devDependencies": {
+    "@massimo-cassandro/linters-config": "^1.2.5"
+  }
+}

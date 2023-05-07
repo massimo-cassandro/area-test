@@ -1,0 +1,22 @@
+{
+  "name": "la-ruota-dei",
+  "version": "1.0.0",
+  "description": "La ruota dei...",
+  "devDependencies": {
+    "gulp-svgstore": "^7.0.1",
+    "gulp-chmod": "^2.0.0",
+    "gulp-file": "^0.3.0",
+    "gulp-svgmin": "^1.2.4",
+    "gulp-rename": "^1.4.0"
+  },
+  "dependencies": {
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "grabbable2": "git+https://github.com/massimo-cassandro/grabbable2.git",
+    "pug-cli": "^1.0.0-alpha6",
+    "pug": "^3.0.2",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup": "^2.66.1",
+    "sass": "^1.38.0"
+  }
+}

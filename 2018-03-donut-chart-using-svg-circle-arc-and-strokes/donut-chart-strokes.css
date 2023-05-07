@@ -1,0 +1,75 @@
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  text-align:center;
+}
+svg {
+  background: #efefef;
+}
+.circle_svg {
+  width: 400px;
+  height: 400px;
+}
+circle,
+path {
+  fill: none;
+}
+.circle_bg {
+  stroke: rgba(0, 0, 0, 0.2);
+}
+path {
+  stroke: orange;
+  stroke-linecap: butt;
+}
+#info {
+  margin-top: 0.5rem;
+  font-family: monospace;
+  font-size: 120%;
+}
+
+/*log*/
+table {
+  margin-top: 1rem;
+  border-collapse: collapse;
+}
+th,
+td {
+  text-align: left;
+  padding: 4px 6px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* form */
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  background: #e9f3ff;
+  padding: 0.2rem;
+  margin: 0.5rem 0;
+}
+.form > div {
+  margin-right: 1rem;
+}
+label {
+  font-size: 0.8rem;
+  line-height: 1;
+}
+input,
+button {
+  font-size: 1rem;
+  padding: 3px 6px;
+  margin: 0;
+}
+
+input {
+  width: 4rem;
+}
+
+.portion-line {
+  stroke: maroon;
+  stroke-width: 0.3px;
+  stroke-dasharray: 1;
+}

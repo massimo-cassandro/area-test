@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SVG pattern generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="./pattern-generator.css" type="text/css" media="all">
+  </head>
+  <body>
+
+    <main class="container">
+      <h1>SVG pattern generator</h1>
+
+      <div class="patterns-display">
+
+        <div>
+          <div>Real size</div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
+            <rect width="100%" height="100%" fill="url(#pattern)" />
+          </svg>
+
+        </div>
+
+        <div>
+          <div>Enlarged view</div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 150 100" width="300" height="200">
+            <rect width="100%" height="100%" fill="url(#pattern)" />
+          </svg>
+
+        </div>
+
+
+        <div>
+          <div>Lines outside the tile (fixed size)</div>
+          <div class="pattern-construction"></div>
+        </div>
+
+        <div>
+          <div>Real size single tile</div>
+          <div class="pattern-single-tile"></div>
+          <button type="button" class="copy-svg btn btn-sm btn-outline-primary">Copy SVG</button>
+        </div>
+
+      </div>
+
+
+      <div class="pattern-path"></div>
+
+
+      <div class="pattern-container"></div>
+
+
+      <fieldset class="my-5">
+        <legend>Pattern controls</legend>
+
+        <div class="controls">
+
+          <div>
+            <label for="angle" class="col-form-label">Line angle</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="angle" value="30" step="any" min="0" max="360">
+              <span class="input-group-text">deg</span>
+            </div>
+          </div>
+
+          <div>
+            <label for="height" class="col-form-label">Tile height</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="height" value="40" step="any" min="1">
+              <span class="input-group-text">px</span>
+            </div>
+          </div>
+
+          <div>
+            <label for="strokeWidth" class="col-form-label">Line stroke-width</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="strokeWidth" value="1.5" step="any" min="0" />
+              <span class="input-group-text">px</span>
+            </div>
+          </div>
+
+          <div>
+            <label for="strokeOpacity" class="col-form-label">Line opacity</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="strokeOpacity" value="1" step="any" min="0" max="1" />
+            </div>
+          </div>
+
+          <div class="color-input">
+            <label for="strokeColor" class="col-form-label">Line color</label>
+            <div class="input-group">
+              <input type="text" id="strokeColor" class="form-control" title="Six chars hex code"  value="#666666" pattern="^#[A-Fa-f0-9]{6}">
+              <input type="color" class="form-control" aria-label="Line color picker">
+            </div>
+          </div>
+
+          <div class="color-input">
+            <label for="fillColor" class="col-form-label">Tile background</label>
+            <div class="input-group">
+              <input type="text" class="form-control" title="Six chars hex code"  id="fillColor" value="#dddddd" pattern="^#[A-Fa-f0-9]{6}">
+              <input type="color" class="form-control" aria-label="Tile background color picker">
+            </div>
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-primary">Apply</button>
+          </div>
+        </div>
+
+
+      </fieldset>
+
+      <p><a href="https://github.com/massimo-cassandro/area-test/tree/main/2022-12-svg-pattern-generator">Source code</a></p>
+
+
+      <h2 class="h3 mt-3">References and tools</h2>
+      <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/pattern" target="_blank" rel="noopener noreferrer">SVG &lt;pattern&gt; (MDN)</a></li>
+        <li><a href="https://yqnn.github.io/svg-path-editor/" target="_blank" rel="noopener noreferrer">svg-path-editor</a></li>
+        <li><a href="https://svg-path-visualizer.netlify.app/" target="_blank" rel="noopener noreferrer">SVG Path Visualizer</a></li>
+      </ul>
+
+    </main>
+
+
+   <script src="./pattern-generator.js"></script>
+  </body>
+</html>

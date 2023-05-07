@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Donut chart using svg circle arc and strokes</title>
+  <link rel="stylesheet" href="./donut-chart-strokes.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<svg class="circle_svg" viewBox="0 0 100 100">
+  <circle class="circle_bg" cx="50" cy="50"></circle>
+  <path id="circle_arc"></path>
+  <line x1="50" y1="0" x2="50" y2="100" stroke-width=".5" stroke="#ccc"/>
+  <line x1="0" y1="50" x2="100" y2="50" stroke-width=".5" stroke="#ccc"/>
+  <circle id="start_point" stroke-width=".5" stroke="#c00" r="5"></circle>
+  <circle id="end_point" stroke-width=".5" stroke="#00F" r="5"></circle>
+  <circle id="arc_center" stroke-width=".5" stroke="#228B22" r="5"></circle>
+</svg>
+
+<div class="form">
+  <div>
+    <label for="stroke_width">Stroke width</label>
+    <input id="stroke_width" type="number" value="4" step="any" min=".2" max="8"> px
+  </div>
+  <div>
+    <label for="portion_angle">Portion angle</label>
+    <input id="portion_angle" type="number" value="30" step="5" min="5" max="360"> °
+  </div>
+  <div>
+    <label for="percent">Value</label>
+    <input id="percent" type="number" value="40" step="any" min="0" max="100"> %
+  </div>
+  <button id="draw" type="button">Draw</button>
+</div>
+
+<div id="info"></div>
+<p>&nbsp;</p>
+<p>Similar to <a href="https://codepen.io/massimo-cassandro/pen/jVzMJO" target="_top"> https://codepen.io/massimo-cassandro/pen/jVzMJO </a>, but using strokes.
+This allows you to use stroke attributes to stylize the chart (for example, we can use round linecaps), but it requires
+some corrections to ensure accuracy: the greater the stroke width, the greater the error (try to increase the value of the portion angle).
+
+The problem is solved by dividing the arc into portions. A portion of  30/45*  works fine.</p>
+
+<p>Refs:</p>
+<ul>
+  <li><a href="https://codepen.io/AmeliaBR/pen/kAIzf" target="_blank">
+    https://codepen.io/AmeliaBR/pen/kAIzf
+  </a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d" target="_blank">https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d</a></li>
+  <li><a href="http://progettomatematica.dm.unibo.it/Trigonometria/cartpol.htm" target="_blank">http://progettomatematica.dm.unibo.it/Trigonometria/cartpol.htm</a></li>
+</ul>
+<!-- partial -->
+  <script  src="./donut-chart-strokes.js"></script>
+
+</body>
+</html>

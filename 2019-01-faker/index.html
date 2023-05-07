@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Faker</title>
+  <style type="text/css" media="screen">
+  html, body {
+  margin:1rem;
+    font-family: sans-serif;
+  }
+  .result {
+    margin:1rem 0;
+    padding: .5rem;
+    font-size:1rem;
+    line-height: 1.3;
+    border:1px solid #ccc;
+    min-height:4rem;
+    font-family: monospace;
+  }
+
+  </style>
+</head>
+<body>
+
+  <h1>Faker Lorem</h1>
+
+  <p><a href="https://rawgit.com/Marak/faker.js/master/examples/browser/index.html">https://rawgit.com/Marak/faker.js/master/examples/browser/index.html</a></p>
+  <p><a href="https://github.com/Marak/faker.js/wiki/Text">https://github.com/Marak/faker.js/wiki/Text</a></p>
+
+  <div id="string_results"></div>
+
+<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/locales/it/faker.it.min.js"></script>
+
+  <script>
+  faker.locale = "it";
+  document.getElementById('string_results').innerHTML =
+    '<div class="result">' + faker.lorem.paragraph() + '</div>' +
+    '<div class="result">' + faker.lorem.sentence() + '</div>' +
+    '<div class="result">' + faker.lorem.sentences(8) + '</div>' +
+    '<div class="result"><p>' + faker.lorem.paragraphs(10, '</p><p>') + '</p></div>' +
+    '<div class="result">' +
+      faker.lorem.paragraphs(10).split('\n')
+        .map(item => '&lt;p&gt;' + item.trim() + '&lt;/p&gt;<br>').join('\n') +
+    '</div>';
+  </script>
+</body>
+</html>
