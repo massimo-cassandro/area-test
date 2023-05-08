@@ -9,7 +9,7 @@ import { decode } from './blurhash/dist/esm/index.js';
 
   const container = document.querySelector('.container'),
     credits_container = document.querySelector('.credits'),
-    url = 'https://www.mazx.it/proxy/getUnsplasPhotos.php?m=t',
+    url = 'https://www.mazx.it/proxy/getUnsplasPhotos.php?m=tfc4lmFw',
     debug = true; // add debug info
 
   // local testing
