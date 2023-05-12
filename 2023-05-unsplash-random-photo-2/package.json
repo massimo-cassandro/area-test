@@ -1,6 +1,7 @@
 {
   "name": "2023-05-unsplash-random-photo-2",
   "version": "1.0.0",
+  "homepage": "./",
   "dependencies": {
     "@massimo-cassandro/linters-config": "^1.3.12",
     "blurhash": "^2.0.5",
