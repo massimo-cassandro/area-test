@@ -1,0 +1,44 @@
+@import 'bootstrap/scss/functions';
+
+/* project variables */
+@import './scss/proj-variables';
+@import './scss/layout-variables';
+
+
+/* start bootsrap */
+@import 'bootstrap/scss/variables';
+// @import 'bootstrap/scss/variables-dark';
+
+// removing unused vars
+$theme-colors: ();
+$colors: ();
+
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+
+@import 'bootstrap/scss/utilities';
+
+$utilities: (
+  'display': (
+    responsive: true,
+    print: true,
+    property: display,
+    class: d,
+    values: inline none // inline inline-block block grid table table-row table-cell flex inline-flex none
+  )
+);
+
+@import 'bootstrap/scss/utilities/api';
+
+
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+// @import 'bootstrap/scss/type';
+@import 'bootstrap/scss/containers';
+// @import 'bootstrap/scss/grid';
+
+
+/* start css app */
+@import './scss/layout';
+@import './scss/loader';
+@import './scss/unsplash-slideshow';

@@ -1,0 +1,22 @@
+.main-container {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+}
+h1, p {
+  text-align: center;
+}
+
+
+.current-brk {
+  margin: 2rem 0;
+  font-weight: 800;
+  color: $gray-600;
+  text-align: center;
+}
+
+p {
+  margin: 0 0 .5rem;
+}

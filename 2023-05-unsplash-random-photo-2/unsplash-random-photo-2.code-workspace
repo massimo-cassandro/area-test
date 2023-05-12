@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"favorites.resources": [
+			{
+				"filePath": "node_modules/@fontsource",
+				"group": "Default"
+			},
+			{
+				"filePath": "node_modules/@massimo-cassandro",
+				"group": "Default"
+			},
+			{
+				"filePath": "node_modules/blurhash",
+				"group": "Default"
+			},
+			{
+				"filePath": "node_modules/bootstrap",
+				"group": "Default"
+			}
+		]
+	}
+}
