@@ -70,19 +70,25 @@
   }
 
   .message {
-    top: 60%;
+    top: 40%;
     bottom: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: .5rem 2rem;
+    padding: .5rem 2rem 1.5rem;
     font-size: 1.1rem;
     font-variation-settings: 'wght' 600;
     line-height: 1.6;
     text-align: center;
     text-shadow: 1px 1px 0 rgba(0 0 0 / .9);
+
+
+    @include media-breakpoint-up(sm) {
+      top: 60%;
+      padding-bottom: .5rem;
+    } // end sm
 
     strong {
       font-size: 120%;
@@ -173,18 +179,27 @@
 
 
   .credits {
-    right: 0;
+    right: 50%;
     bottom: 0;
     display: block;
+    width: 100%;
     padding: .2rem .6rem;
     font-size: .7rem;
     font-weight: 300;
     line-height: 1;
+    text-align: center;
     background-color: rgba(0 0 0 / .7);
+    transform: translateX(50%);
 
     &, a {
       color: rgba(255 255 255 / .9);
     }
+
+    @include media-breakpoint-up(sm) {
+      right: 0;
+      width: auto;
+      transform: none;
+    } // end sm
   }
 
   .credits a {
