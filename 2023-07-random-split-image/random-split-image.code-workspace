@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"favorites.resources": [
+			{
+				"filePath": "node_modules/randomcolor",
+				"group": "Default"
+			}
+		]
+	}
+}

@@ -1,0 +1,68 @@
+.img-split-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: center;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+
+  // background-image: var(--img);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img-split-item {
+  --animation-delay: .2s;
+  --animation-count: 1; // cicli di animazione (NB: devono essere dispari)
+
+  width: calc(100% / var(--items));
+  height: 100%;
+  overflow: hidden;
+  background-color: #ddd;
+
+  opacity: 0;
+  animation: var(--duration) ease-in var(--animation-delay) var(--animation-count) alternate forwards splits-show;
+
+  > div {
+    position: absolute;
+    left: calc(-1 * var(--idx) * 100dvw / var(--items));
+    width: 100dvw;
+    height: 100%;
+    background-image: var(--img);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+
+  &:nth-child(even) {
+    transform: translateY(-101%);
+
+  }
+  &:nth-child(odd) {
+    transform: translateY(101%);
+
+  }
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    display: block;
+    content: '';
+    background-color: var(--color);
+    opacity: 1;
+    // il fattore della durata è leggermente più basso del numero dei cicli di animazione
+    animation: calc(var(--max-duration) * var(--animation-count) * .5) linear var(--animation-delay) forwards color-hide;
+  }
+}
+
+@keyframes splits-show {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes color-hide {
+  to {
+    opacity: 0;
+  }
+}
