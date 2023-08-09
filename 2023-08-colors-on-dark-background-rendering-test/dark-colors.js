@@ -4,7 +4,8 @@ const container = document.querySelector('.colors-grid'),
     '#468804', '#eb5708', '#950ada', '#c00',
     '#c9db03', '#3a4e48', '#770d2b', '#b58db6',
     '#d0ada7', '#696aad', '#2427d8', '#66BCE9',
-    '#BA276E', '#5F59F7', '#b50579', '#083ba9'
+    '#BA276E', '#5F59F7', '#b50579', '#083ba9',
+    '#fc0'
    ];
 
 colors.forEach(color => {
