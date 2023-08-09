@@ -1,0 +1,112 @@
+body {
+  font-family: sans-serif;
+}
+.outer-wrapper {
+  --animation-delay: .2s;
+  --animation-count: 1; // animation cycles (NB: must be odd)
+
+  position: relative;
+}
+.credits {
+  position: absolute;
+  bottom: -101%;
+  left: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  gap: .5rem 2rem;
+  justify-content: space-between;
+  width: 100%;
+  padding: .3rem .5rem;
+  color: #fff;
+  background-color: rgba(0 0 0 / .7);
+  opacity: 0;
+  animation: credits-show 1s calc(var(--animation-delay) + var(--max-duration) * var(--animation-count)) linear forwards;
+
+  a {
+    color: #fc0;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .location, .photo-link {
+    font-size: .85em;
+    opacity: .7;
+  }
+}
+
+@keyframes credits-show {
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+.img-split-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: center;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+
+  // background-image: var(--img);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img-split-item {
+
+  width: calc(100% / var(--items));
+  height: 100%;
+  overflow: hidden;
+  background-color: #ddd;
+
+  opacity: 0;
+  animation: var(--duration) ease-in var(--animation-delay) var(--animation-count) alternate forwards splits-show;
+
+  > div {
+    position: absolute;
+    left: calc(-1 * var(--idx) * 100dvw / var(--items));
+    width: 100dvw;
+    height: 100%;
+    background-image: var(--img);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+
+  &:nth-child(even) {
+    transform: translateY(-101%);
+
+  }
+  &:nth-child(odd) {
+    transform: translateY(101%);
+
+  }
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    display: block;
+    content: '';
+    background-color: var(--color);
+    opacity: 1;
+    // the duration factor is slightly lower than the number of animation cycles
+    animation: calc(var(--max-duration) * var(--animation-count) * .5) linear var(--animation-delay) forwards color-hide;
+  }
+}
+
+@keyframes splits-show {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes color-hide {
+  to {
+    opacity: 0;
+  }
+}

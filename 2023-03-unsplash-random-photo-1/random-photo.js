@@ -154,7 +154,7 @@ import { decode } from './blurhash/dist/esm/index.js';
         `<span>${description}
           <a class="arrow" href="${photo.unsplash_url}?utm_source=test-app&utm_medium=referral">&#8618;</a>
         </span>
-        <span>Photo <a href="${photo.author_profile}?utm_source=ada&utm_medium=referral">
+        <span>Photo <a href="${photo.author_profile}?utm_source=test-app&utm_medium=referral">
           ${photo.author} / Unsplash
         </a></span>`;
     })

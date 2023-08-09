@@ -1,0 +1,48 @@
+{
+  "name": "led-board",
+  "version": "1.0.0",
+  "description": "Virtual led board",
+  "author": "Massimo Cassandro",
+  "license": "MIT",
+  "homepage": "./",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "stylelint": {
+    "extends": "@massimo-cassandro/linters-config/stylelintrc.js",
+    "ignoreFiles": [
+      "build/**/*.css"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "./node_modules/@massimo-cassandro/linters-config/eslintrc.js"
+    ],
+    "ignorePatterns": [
+      "build/**/*.js"
+    ]
+  },
+  "browserslist": [
+    "last 1 version",
+    "iOS >= 13",
+    "Safari >= 12",
+    "not ie <= 11",
+    "> 3% in IT"
+  ],
+  "dependencies": {
+    "css-reset-and-normalize": "^2.3.6",
+    "nanoid": "^4.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "sass": "^1.64.2"
+  },
+  "devDependencies": {
+    "@massimo-cassandro/linters-config": "^1.5.1",
+    "lighthouse": "^10.4.0",
+    "node-html-parser": "^6.1.5"
+  }
+}
