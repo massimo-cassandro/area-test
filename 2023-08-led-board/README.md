@@ -1,4 +1,4 @@
-# Led Board
+# Led Board (in progress)
 
 Aug 2023
 
@@ -50,7 +50,7 @@ Aug 2023
 
 ![SLASH](readme-files/chars/SLASH.svg)
 ![EURO](readme-files/chars/EURO.svg)
-![APOSTROPHE](readme-files/chars/APOSTROPHE.svg)
+![APOSTROPHE](readme-files/chars/APOS.svg)
 ![DASH](readme-files/chars/DASH.svg)
 
 
