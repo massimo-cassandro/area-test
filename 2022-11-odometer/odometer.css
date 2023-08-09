@@ -1,0 +1,27 @@
+body {
+  font-family: sans-serif;
+}
+.odometer {
+  display: flex;
+  gap: .5rem;
+}
+
+.odometer > div {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-items: center;
+  align-items: center;
+  padding: .5rem;
+  background-color: gold;
+}
+.odometer > div > div {
+  font-size: 2rem;
+}
+
+.odometer .val {
+  font-size: 10rem;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums slashed-zero lining-nums;
+  line-height: 1;
+}
+

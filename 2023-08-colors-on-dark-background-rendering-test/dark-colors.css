@@ -1,0 +1,43 @@
+body {
+  color: #fff;
+  background: #000;
+  font-family: sans-serif;
+  line-height:1.5;
+}
+
+.colors-grid {
+  display:grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat( auto-fill, minmax(8rem, 1fr));
+  margin:1rem
+}
+
+.colors-grid > div {
+  text-align: center;
+}
+.color-sample {
+  border-width:1px;
+  border-style:solid;
+  border-radius:4px;
+}
+
+.text {
+  color: white;
+  padding:3px;
+}
+.box {
+  padding:3px;
+}
+.text-white {
+  color:white;
+}
+.text-dark {
+  color:black;
+}
+.color {
+  margin: .4rem 0 0;
+  font-size: 1rem;
+  color: #959292;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
