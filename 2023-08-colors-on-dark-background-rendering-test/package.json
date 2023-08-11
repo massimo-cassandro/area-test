@@ -1,0 +1,7 @@
+{
+  "name": "colors-on-dark-backgrounds",
+  "version": "0.2.0",
+  "description": "Rendering tests on dark backgrounds",
+  "author": "Massimo Cassandro",
+  "license": "MIT"
+}
