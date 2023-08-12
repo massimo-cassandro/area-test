@@ -9,7 +9,8 @@ body {
 }
 .credits {
   position: absolute;
-  bottom: -101%;
+  // bottom: -101%;
+  bottom: 0;
   left: 0;
   box-sizing: border-box;
   display: flex;
@@ -21,7 +22,7 @@ body {
   color: #fff;
   background-color: rgba(0 0 0 / .7);
   opacity: 0;
-  animation: credits-show 1s calc(var(--animation-delay) + var(--max-duration) * var(--animation-count)) linear forwards;
+  animation: credits-show .5s calc(var(--animation-delay) + var(--max-duration) * var(--animation-count)) linear forwards;
 
   a {
     color: #fc0;
@@ -39,7 +40,7 @@ body {
 
 @keyframes credits-show {
   to {
-    bottom: 0;
+    // bottom: 0;
     opacity: 1;
   }
 }
