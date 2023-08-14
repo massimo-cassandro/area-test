@@ -14,7 +14,7 @@ const sections = 10,
   minDuration = .5,
 
   img_url= 'https://images.unsplash.com/photo-1679259429316-a05794b72035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=40',
-  credits_link = 'https://unsplash.com/it/@mazz';
+  credits_link = 'https://unsplash.com/@mazz';
 
 const img = new Image();
 img.onload = () => {
@@ -29,7 +29,7 @@ img.onload = () => {
         }).join('')}
       </div>
       <div class="credits">
-        <span>Photo <a href="${credits_link}?utm_source=github-demo&utm_medium=referral">@mazz / Unsplash</a></span>
+        <span>Photo <a href="${credits_link}?utm_source=github-demo&utm_medium=referral" target="_blank" rel="noopener noreferrer">@mazz / Unsplash</a></span>
         <span>Villa Borghese, Rome, Italy</span>
       </div>
     </div>`;
