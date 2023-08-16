@@ -1,13 +1,11 @@
-import manifest from '../build/asset-manifest.json' assert {type: 'json'};
+// import manifest from '../build/asset-manifest.json' assert {type: 'json'};
 
 
-// get css from build
-const css_file = '../build/' + manifest.files['main.css'].replace(/^\.\//, '');
-document.head.insertAdjacentHTML('beforeend',
-  `<link rel="stylesheet" href="${css_file}" type="text/css" media="all">`
-);
-
-
+// // get css from build
+// const css_file = '../build/' + manifest.files['main.css'].replace(/^\.\//, '');
+// document.head.insertAdjacentHTML('beforeend',
+//   `<link rel="stylesheet" href="${css_file}" type="text/css" media="all">`
+// );
 
 const sections = 10,
   maxDuration = 1.5, // seconds

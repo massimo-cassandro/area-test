@@ -81,12 +81,13 @@ body {
   }
 
   &:nth-child(even) {
-    transform: translateY(-101%);
+    // transform: translateY(-101%);
+    translate: 0 -101%;
 
   }
   &:nth-child(odd) {
-    transform: translateY(101%);
-
+    // transform: translateY(101%);
+    translate: 0 101%;
   }
 
   &::after {
@@ -104,7 +105,8 @@ body {
 @keyframes splits-show {
   to {
     opacity: 1;
-    transform: translateY(0);
+    // transform: translateY(0);
+    translate: 0 0;
   }
 }
 @keyframes color-hide {

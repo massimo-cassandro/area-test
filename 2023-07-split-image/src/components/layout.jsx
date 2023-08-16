@@ -10,7 +10,8 @@ import React from 'react';
 function Layout(props) {
   const [content, setContent] = React.useState(null),
     wrapper = React.useRef(null),
-    [unsplashData, setUnsplashData] = React.useState(null);
+    [unsplashData, setUnsplashData] = React.useState(null),
+    [imgUrl, setImgUrl] = React.useState(null);
 
   React.useEffect(() => {
 
@@ -18,27 +19,39 @@ function Layout(props) {
       const unsplashFoto = await getUnsplahRandomPhoto();
       return unsplashFoto;
     })()
-      .then(data => setUnsplashData(data));
+      .then(data => {
 
-  }, []);
-
-  React.useEffect(() => {
-
-    if(unsplashData) {
-      const colors = randomColor({ count: props.sections, hue: unsplashData.color }),
-        maxDuration = 1.5,
-        minDuration = .5,
-
-        baseUrl = unsplashData.base_url + (/\?/.test(unsplashData.base_url)? '&' : '?') +
+        const image_url = data.base_url + (/\?/.test(data.base_url)? '&' : '?') +
           'fit=crop&crop=focalpoint' + // top, bottom, left, right, faces, focalpoint, edges, and entropy
           '&q=80' +
           'auto=format' +
           '&w=1600&h=1200';
-        // `&fm=${fmt}`;
+          // `&fm=${fmt}`;
+
+        const img = new Image();
+        img.onload = () => {
+          setUnsplashData(data);
+          setImgUrl(image_url);
+        };
+
+        img.src = image_url;
+      });
+
+
+  }, []);
+
+
+
+  React.useEffect(() => {
+
+    if(unsplashData && imgUrl) {
+      const colors = randomColor({ count: props.sections, hue: unsplashData.color }),
+        maxDuration = 1.5,
+        minDuration = .5;
 
       setContent(
         <div className="outer-wrapper" style={{
-          '--img': `url(${baseUrl})`,
+          '--img': `url(${imgUrl})`,
           '--items': props.sections,
           '--max-duration': `${maxDuration}s`
         }}>
@@ -66,7 +79,7 @@ function Layout(props) {
       );
     }
 
-  }, [props.sections, unsplashData]);
+  }, [imgUrl, props.sections, unsplashData]);
 
 
 
