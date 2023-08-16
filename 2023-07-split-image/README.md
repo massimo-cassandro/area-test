@@ -6,9 +6,7 @@ Random photos split image with random colors using Unsplash Api
 
 [React demo](https://massimo-cassandro.github.io/area-test/2023-07-split-image/build/index.html)
 
-[Vanilla JS version (fixed image)](https://massimo-cassandro.github.io/area-test/2023-07-split-image/vanilla-js-version/index.html)
-
-> NB: The vanilla js version uses an import assert statement which is [currently not supported by all browsers](https://caniuse.com/mdn-javascript_statements_import_import_assertions_type_json) 
+[Vanilla JS version (fixed image)](https://massimo-cassandro.github.io/area-test/2023-07-split-image/vanilla-js-version/index.html) (NB: The vanilla js version uses an import assert statement which is [currently not supported by all browsers](https://caniuse.com/mdn-javascript_statements_import_import_assertions_type_json))
 
 
 [Codepen](https://codepen.io/massimo-cassandro/full/OJaYxLa)
