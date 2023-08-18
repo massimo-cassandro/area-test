@@ -1,10 +1,10 @@
-import Layout from './components/layout';
-import './style.scss';
+import SplitImage from './components/SplitImage';
+import './app.scss';
 
 function App() {
   return (
     <>
-      <Layout />
+      <SplitImage />
     </>
   );
 }

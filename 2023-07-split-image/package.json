@@ -9,15 +9,15 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test server": "python3 -m http.server",
-    "sass (vanilla vers.)": "npx sass ./src/style.scss:./vanilla-js-version/split-image.css ./skew-version/split-image-skew.scss:./skew-version/split-image-skew.css --load-path=./node_modules/ --no-source-map --watch",
-    "upd vers.": "npx update-version --html-files=./vanilla-js-version/index.html,./!!-skew-version/index.html"
+    "sass (vanilla vers.)": "npx sass ./src/app.scss:./vanilla-js-version/split-image.css ./rotated-version:./rotated-version --load-path=./node_modules/ --no-source-map --watch",
+    "upd vers.": "npx update-version --html-files=./vanilla-js-version/index.html"
   },
   "stylelint": {
     "extends": "@massimo-cassandro/linters-config/stylelintrc.js",
     "ignoreFiles": [
       "build/**/*.css",
-      "vanilla-js-version/split-image.css",
-      "skew-version/split-image-skew.css"
+      "vanilla-js-version/*.css",
+      "rotated-version/*.css"
     ]
   },
   "eslintConfig": {

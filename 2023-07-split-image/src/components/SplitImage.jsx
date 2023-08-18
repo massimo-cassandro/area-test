@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 // import styled from 'styled-components';
 
-function Layout(props) {
-  const [content, setContent] = React.useState(null),
+function SplitImage(props) {
+  const [content, setContent] = React.useState(<div className="loading">Loading...</div>),
     wrapper = React.useRef(null),
     [unsplashData, setUnsplashData] = React.useState(null),
     [imgUrl, setImgUrl] = React.useState(null);
@@ -90,11 +90,11 @@ function Layout(props) {
 
 // https://it.reactjs.org/docs/typechecking-with-proptypes.html
 
-Layout.propTypes = {
+SplitImage.propTypes = {
   sections: PropTypes.number
 };
-Layout.defaultProps = {
+SplitImage.defaultProps = {
   sections: 10
 };
 
-export default Layout;
+export default SplitImage;

@@ -31,7 +31,7 @@ img.onload = () => {
         <span>Villa Borghese, Rome, Italy</span>
       </div>
     </div>`;
-}
+};
 
 img.src = img_url;
 
