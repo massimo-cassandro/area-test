@@ -1,6 +1,6 @@
 
 import { getUnsplahRandomPhoto } from '../js/get-unsplash-random-photo';
-import randomColor from '../external-libs/randomColor';
+import randomcolor from 'randomcolor';
 
 import PropTypes from 'prop-types';
 // import classnames from 'classnames';
@@ -45,7 +45,7 @@ function SplitImage(props) {
   React.useEffect(() => {
 
     if(unsplashData && imgUrl) {
-      const colors = randomColor({ count: props.sections, hue: unsplashData.color }),
+      const colors = randomcolor({ count: props.sections, hue: unsplashData.color }),
         maxDuration = 1.5,
         minDuration = .5;
 

@@ -104,8 +104,7 @@ body {
     content: '';
     background-color: var(--color);
     opacity: 1;
-    // the duration factor is slightly lower than the number of animation cycles
-    animation: calc(var(--max-duration) * var(--animation-count) * .5) linear var(--animation-delay) forwards color-hide;
+    animation: calc(var(--max-duration) * var(--animation-count)) linear var(--animation-delay) forwards color-hide;
   }
 }
 
