@@ -5,11 +5,11 @@ import randomcolor from 'randomcolor';
 import PropTypes from 'prop-types';
 // import classnames from 'classnames';
 import React from 'react';
-// import styled from 'styled-components';
+import styles from './SplitImage.module.scss';
 
 function SplitImage(props) {
-  const [content, setContent] = React.useState(<div className="loading">Loading...</div>),
-    wrapper = React.useRef(null),
+  const [content, setContent] = React.useState(<div className={styles.loading}>Loading...</div>),
+    // wrapper = React.useRef(null),
     [unsplashData, setUnsplashData] = React.useState(null),
     [imgUrl, setImgUrl] = React.useState(null);
 
@@ -45,19 +45,21 @@ function SplitImage(props) {
   React.useEffect(() => {
 
     if(unsplashData && imgUrl) {
-      const colors = randomcolor({ count: props.sections, hue: unsplashData.color }),
+
+      // https://github.com/davidmerfield/randomColor
+      const colors = randomcolor({ count: props.stripes, hue: unsplashData.color }),
         maxDuration = 1.5,
         minDuration = .5;
 
       setContent(
-        <div className="outer-wrapper" style={{
+        <div className={styles.outerWrapper} style={{
           '--img': `url(${imgUrl})`,
-          '--items': props.sections,
+          '--items': props.stripes,
           '--max-duration': `${maxDuration}s`
         }}>
-          <div ref={wrapper} className='img-split-wrapper'>
-            {[...Array(props.sections)].map((_, idx) => {
-              return <div className="img-split-item" key={idx}
+          <div className={styles.imgStripesWrapper}>
+            {[...Array(props.stripes)].map((_, idx) => {
+              return <div className={styles.imgStripeItem} key={idx}
                 style={{
                   '--idx': idx,
                   '--color': colors[idx],
@@ -65,21 +67,21 @@ function SplitImage(props) {
                 }}><div></div></div>; //additional div needed for proper image placement
             })}
           </div>
-          <div className="credits">
+          <div className={styles.credits}>
             <span>Photo <a href={`${unsplashData.author_profile}?utm_source=github-demo&utm_medium=referral`}>
               {unsplashData.author} / Unsplash
             </a></span>
             <span>{unsplashData.description}
-              {unsplashData.location && <span className="location"> ({unsplashData.location})</span>}
+              {unsplashData.location && <span className={styles.location}> ({unsplashData.location})</span>}
               {' '}
-              <a className="photo-link" href={`${unsplashData.unsplash_url}?utm_source=github-demo&utm_medium=referral`} target="_blank" rel="noopener noreferrer">[orig. photo]</a>
+              <a className={styles.photoLink} href={`${unsplashData.unsplash_url}?utm_source=github-demo&utm_medium=referral`} target="_blank" rel="noopener noreferrer">[orig. photo]</a>
             </span>
           </div>
         </div>
       );
     }
 
-  }, [imgUrl, props.sections, unsplashData]);
+  }, [imgUrl, props.stripes, unsplashData]);
 
 
 
@@ -91,10 +93,10 @@ function SplitImage(props) {
 // https://it.reactjs.org/docs/typechecking-with-proptypes.html
 
 SplitImage.propTypes = {
-  sections: PropTypes.number
+  stripes: PropTypes.number
 };
 SplitImage.defaultProps = {
-  sections: 10
+  stripes: 10
 };
 
 export default SplitImage;

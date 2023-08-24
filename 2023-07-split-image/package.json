@@ -1,6 +1,6 @@
 {
   "name": "random-split-image",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Random photos split image with random colors using Unsplash Api",
   "author": "Massimo Cassandro",
   "license": "MIT",
@@ -9,8 +9,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test server": "python3 -m http.server",
-    "sass (vanilla vers.)": "npx sass ./src/app.scss:./vanilla-js-version/split-image.css ./rotated-version:./rotated-version --load-path=./node_modules/ --no-source-map --watch",
-    "upd vers.": "npx update-version --html-files=./vanilla-js-version/index.html"
+    "sass (vanilla vers.)": "npx sass ./vanilla-js-version:./vanilla-js-version ./rotated-version:./rotated-version --load-path=./node_modules/ --no-source-map --watch",
+    "upd vers.": "npx update-version --html-files=./vanilla-js-version/index.html,./rotated-version/rotated-and-scaled.html,./rotated-version/rotated-without-scale.html"
   },
   "stylelint": {
     "extends": "@massimo-cassandro/linters-config/stylelintrc.js",

@@ -16,12 +16,13 @@ const sections = 10,
 
 const img = new Image();
 img.onload = () => {
-  document.getElementById('root').innerHTML = `<div class="outer-wrapper"
-    style="--items: ${sections}; --max-duration: ${maxDuration}s;
+  document.getElementById('root').innerHTML = `<div class="outerWrapper"
+    style="--items: ${sections};
+      --max-duration: ${maxDuration}s;
       --img: url(${img_url})">
-    <div class='img-split-wrapper'>
+    <div class='imgStripesWrapper'>
         ${[...Array(sections)].map((_, idx) => {
-          return `<div class="img-split-item" style="--idx: ${idx};
+          return `<div class="imgStripeItem" style="--idx: ${idx};
               --duration: ${(Math.random() * (maxDuration - minDuration) + minDuration).toFixed(2)}s">
               <div></div></div>`; // additional div needed for proper image placement
         }).join('')}

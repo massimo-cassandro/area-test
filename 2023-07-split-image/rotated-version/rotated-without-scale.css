@@ -1,4 +1,4 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* stylelint-disable selector-class-pattern */ /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
 /**
@@ -413,4 +413,13 @@ body {
   to {
     opacity: 0;
   }
+}
+.imgStripesWrapper {
+  --rotation: 15deg;
+  transform-origin: center;
+  rotate: calc(-1 * var(--rotation));
+}
+
+.imgStripeItem > div {
+  rotate: var(--rotation);
 }

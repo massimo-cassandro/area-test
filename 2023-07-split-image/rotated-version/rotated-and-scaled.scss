@@ -1,0 +1,22 @@
+/* stylelint-disable selector-class-pattern */
+@import '../src/app';
+@import '../src/components/SplitImage.module';
+
+.root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.imgStripesWrapper{
+
+  transform-origin: center;
+  rotate: calc(-1 * var(--rotation));
+  scale: var(--scale);
+}
+
+.imgStripeItem {
+  > div {
+    rotate: var(--rotation);
+
+  }
+}

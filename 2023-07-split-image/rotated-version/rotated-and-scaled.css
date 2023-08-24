@@ -1,4 +1,4 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* stylelint-disable selector-class-pattern */ /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
 /**
@@ -413,4 +413,18 @@ body {
   to {
     opacity: 0;
   }
+}
+.root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.imgStripesWrapper {
+  transform-origin: center;
+  rotate: calc(-1 * var(--rotation));
+  scale: var(--scale);
+}
+
+.imgStripeItem > div {
+  rotate: var(--rotation);
 }
