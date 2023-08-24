@@ -19,5 +19,4 @@ On Firefox, sometimes some empty pixel lines are displayed (see <https://bugzill
 ## References
 
 * <https://github.com/davidmerfield/randomColor>
-* <https://github.com/massimo-cassandro/randomColor-browser> (corrisponde alla pull request https://github.com/davidmerfield/randomColor/pull/151)
 * <https://codepen.io/supah/pen/ayOjop>
