@@ -1,0 +1,43 @@
+@import 'css-reset-and-normalize/scss/reset-and-normalize';
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  color: #fff;
+  // background-image:
+  //   linear-gradient(
+  //     325deg,
+  //     hsl(240deg 56% 8%) 0%,
+  //     hsl(235deg 51% 9%) 11%,
+  //     hsl(231deg 49% 10%) 22%,
+  //     hsl(228deg 49% 11%) 33%,
+  //     hsl(226deg 49% 12%) 44%,
+  //     hsl(225deg 49% 13%) 55%,
+  //     hsl(224deg 48% 14%) 66%,
+  //     hsl(223deg 48% 15%) 78%,
+  //     hsl(222deg 48% 16%) 89%,
+  //     hsl(221deg 48% 17%) 100%
+  //   );
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  background-color: #161b26;
+}
+
+h1 {
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.app {
+  margin: 3rem 1rem 1rem;
+}
+
+footer {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: .8rem;
+  text-align: center;
+  opacity: .8;
+}
