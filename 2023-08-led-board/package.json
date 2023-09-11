@@ -4,6 +4,7 @@
   "description": "Virtual led board",
   "author": "Massimo Cassandro",
   "license": "MIT",
+  "homepage": "./",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
