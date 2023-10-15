@@ -1,4 +1,4 @@
-import {access_key} from './apikey.js'; // local testing
+// import {access_key} from './apikey.js'; // local testing
 import {breakpoints} from './img-breakpoints.js';
 import { decode } from './blurhash/dist/esm/index.js';
 
@@ -13,15 +13,15 @@ import { decode } from './blurhash/dist/esm/index.js';
     photo_link = document.querySelector('.photo-link');
 
   // production
-  // const url = 'https://primominuto.altervista.org/proxy/getUnsplashPhotos.php?m=tfc4lmFw';
+  const url = 'https://primominuto.altervista.org/proxy/getUnsplashPhotos.php?m=tfc4lmFw';
 
   // local testing
-  const collections_ids = '3660951', // comma separated
-    orientation = 'landscape', // landscape, portrait, squarish, null
-    url = 'https://api.unsplash.com/photos/random' +
-      `?collections=${collections_ids}` +
-      (orientation? `&orientation=${orientation}` : '') +
-      `&client_id=${access_key}`;
+  // const collections_ids = '3660951', // comma separated
+  //   orientation = 'landscape', // landscape, portrait, squarish, null
+  //   url = 'https://api.unsplash.com/photos/random' +
+  //     `?collections=${collections_ids}` +
+  //     (orientation? `&orientation=${orientation}` : '') +
+  //     `&client_id=${access_key}`;
 
   const load_image = () => {
 
