@@ -10,7 +10,7 @@ import { decode } from './blurhash/dist/esm/index.js';
   const container = document.querySelector('.container'),
     credits_container = document.querySelector('.credits'),
     url = 'https://primominuto.altervista.org/proxy/getUnsplashPhotos.php?m=tfc4lmFw',
-    debug = true; // add debug info
+    debug = false; // add debug info
 
   // local testing
   // const collections_ids = '3660951', // comma separated
