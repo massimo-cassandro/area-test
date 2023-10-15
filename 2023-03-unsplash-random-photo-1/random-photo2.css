@@ -34,41 +34,32 @@ canvas {
   transition: opacity .3s linear;
 }
 
-.container img.show {
+.container.show img {
   opacity: 1;
-}
-
-.message, .credits {
-  color: #fff;
-  background-color: rgba(0 0 0 / .7);
-}
-.message {
-  position: absolute;
-  bottom: 30%;
-  left: 0;
-  padding: .5rem 3rem;
-}
-.message h1 {
-  margin: 0;
-  font-weight: 700;
-  line-height: 1;
 }
 
 .credits {
   position: absolute;
   bottom: 0;
   left: 0;
-  display: flex;
+  display: none;
   flex-flow: row wrap;
   gap: .5rem 2rem;
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
   padding: .2rem 1rem;
+  color: #fff;
+  background-color: rgba(0 0 0 / .7);
   font-size: .8rem;
   font-weight: 400;
   line-height: 1.4;
 }
+
+.container.show .credits {
+  display: flex;
+}
+
 
 .credits a {
   color: #fc0;
@@ -130,11 +121,47 @@ canvas {
 }
 @keyframes spin { to { transform: rotate(1turn) } }
 
-.arrow {
-  position: relative;
-  top: 3px;
-  opacity: 0;
+
+/* 2 */
+.photo-link, .reload {
+  position: absolute;
+  right: 1rem;
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: .4rem;
+  border-radius: 50%;
+  background-color: hsl(76deg 95% 43% / .8);
 }
-.credits:hover .arrow {
-  opacity:1;
+.container.show  :is(.photo-link, .reload) {
+  display: flex;
+}
+:is(.photo-link, .reload) svg {
+  max-width: 100%;
+  height: auto;
+  fill: #000;
+  transition: scale .2s ease-in-out;
+}
+
+@media (hover: hover) {
+  :is(.photo-link, .reload):hover {
+    background-color: hsla(76, 87%, 69%, 0.8);
+  }
+}
+:is(.photo-link, .reload):active svg {
+  scale: 1.2;
+}
+
+.photo-link {
+  top: 1rem;
+}
+
+.reload {
+  bottom: 6rem;
+}
+@media screen and (min-width: 400px) {
+  bottom: 3rem;
 }
