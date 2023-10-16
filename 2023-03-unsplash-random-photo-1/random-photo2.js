@@ -60,7 +60,7 @@ import { decode } from './blurhash/dist/esm/index.js';
 
         // console.log(photo);
 
-
+        container.querySelector('picture')?.remove();
 
         // https://docs.imgix.com/apis/rendering/format/fm
         const formats = ['avif', 'webp', 'pjpg']; // `fm` parameter, in order of use
