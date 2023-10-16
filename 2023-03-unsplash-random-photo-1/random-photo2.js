@@ -124,6 +124,7 @@ import { decode } from './blurhash/dist/esm/index.js';
 
         const pixels = decode(photo.blur_hash, img.width, img.height);
 
+        container.querySelector('canvas')?.remove();
         const canvas = document.createElement('canvas');
         canvas.width = img.width;
         canvas.height = img.height;
