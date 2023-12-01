@@ -20,3 +20,5 @@ On Firefox, sometimes some empty pixel lines are displayed (see <https://bugzill
 
 * <https://github.com/davidmerfield/randomColor>
 * <https://codepen.io/supah/pen/ayOjop>
+
+See also <https://github.com/massimo-cassandro/unsplash-page>
