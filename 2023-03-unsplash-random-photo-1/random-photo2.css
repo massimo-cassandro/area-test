@@ -48,6 +48,10 @@ canvas {
       max-height: 100%;
       object-fit: none;
     }
+
+    .credits {
+      display: none;
+    }
   }
 }
 
