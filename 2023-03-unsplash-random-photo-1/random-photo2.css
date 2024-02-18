@@ -50,7 +50,7 @@ canvas {
     }
 
     .credits {
-      display: none;
+      display: none !important;
     }
   }
 }
