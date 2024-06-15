@@ -5,12 +5,6 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.host": "127.0.0.1",
-		"liveServer.settings.CustomBrowser": "chrome",
-    "liveServer.settings.AdvanceCustomBrowserCmdLine": "Firefox Developer Edition",
-    // "liveServer.settings.AdvanceCustomBrowserCmdLine": null,
-		"liveServer.settings.multiRootWorkspaceName": "_area-test",
-		"liveServer.settings.port": 5500
 
 	}
 }

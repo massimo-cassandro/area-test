@@ -11,6 +11,16 @@
   "bugs": {
     "url": "https://github.com/massimo-cassandro/area-test/issues"
   },
-  "homepage": "https://github.com/area-test#readme"
-
+  "homepage": "https://github.com/area-test#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.5.0",
+    "@massimo-cassandro/eslint-config": "^2.0.4",
+    "@massimo-cassandro/stylelint-config": "^1.1.3",
+    "@stylistic/stylelint-plugin": "^2.1.2",
+    "eslint": "^9.5.0",
+    "globals": "^15.4.0",
+    "stylelint": "^16.6.1",
+    "stylelint-config-css-modules": "^4.4.0",
+    "stylelint-config-twbs-bootstrap": "^14.1.0"
+  }
 }
