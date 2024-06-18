@@ -1,4 +1,4 @@
-# Grid Slider #1
+# Responsive Grid Slider #1
 
 Jun 2024
 

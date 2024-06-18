@@ -1,4 +1,4 @@
-/* for demo */
+/* demo only */
 html {
   font-family: sans-serif;
 }
@@ -43,7 +43,7 @@ hr {
     display: grid;
     place-content: center;
 
-    /* for demo */
+    /* demo only */
     height: 8rem;
     font-size: 4rem;
     line-height: 1;
@@ -66,12 +66,12 @@ hr {
       z-index: -1;
       grid-row: 1;
       grid-column: 1;
-      filter: grayscale(100%); /* for demo */
+      filter: grayscale(100%); /* demo only */
       transition: translate .6s ease-in-out;
 
       &.on {
         z-index: 0;
-        filter: none; /* for demo */
+        filter: none; /* demo only */
         translate: 0;
       }
       &, &.next {
@@ -95,7 +95,7 @@ hr {
 }
 
 
-/* for demo */
+/* demo only */
 .mobile-slider-container, .slider-controls {
   width: 360px;
 }
