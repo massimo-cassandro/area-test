@@ -1,6 +1,6 @@
 .carousel-outer-wrapper {
   /* disabled to show offset slides */
-  overflow: hidden;
+  /* overflow: hidden; */
 
   .slider {
     overflow: visible;
@@ -11,7 +11,7 @@
   display: grid;
 
   /* disabled to show offset slides */
-  overflow: hidden;
+  /* overflow: hidden; */
 
   /* pre-init: show the first slide */
   &:not(.slider-active) .slide:nth-child(1) {
