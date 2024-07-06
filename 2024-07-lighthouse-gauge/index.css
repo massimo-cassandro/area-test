@@ -1,0 +1,56 @@
+.container {
+  padding: 2rem;
+}
+.control {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 3rem;
+}
+
+.gauge-wrapper {
+  --danger: #c00;
+  --warning: #ff9100;
+  --success: #037703;
+
+  width: 12rem;
+}
+
+.gauge {
+  --color: #666;
+  --stroke-width: 8px;
+  --radius: 60px;
+  --dasharray: 0;
+
+  fill: none;
+
+  text {
+    font-family: 'Monaspace Neon', 'Fira Code', 'Roboto Mono', 'Source Code Pro', monospace;
+    font-size: 80px;
+    letter-spacing: -5px;
+    text-anchor: middle;
+    fill: #000;
+    translate: 0 12%;
+  }
+}
+.gauge-base, .gauge-arc{
+  stroke-width: var(--stroke-width);
+  transition: all 0.5s linear;
+  r: calc(var(--radius) - var(--stroke-width) / 2);
+  cx: var(--radius);
+  cy: var(--radius);
+}
+.gauge-base {
+  fill: color-mix(in srgb, var(--color) 30%, #fff);
+  stroke: color-mix(in srgb, var(--color) 50%, #fff);
+}
+.gauge-arc {
+  fill: none;
+  stroke: var(--color);
+  stroke-dasharray: var(--dasharray);
+  stroke-linecap: round;
+  transform-origin: center;
+  rotate: -90deg;
+}

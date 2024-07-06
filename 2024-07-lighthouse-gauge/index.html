@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Google lighthouse gauge</title>
+    <link rel="stylesheet" href="./index.css" type="text/css" media="all">
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="gauge-wrapper">
+      <svg class="gauge">
+        <circle class="gauge-base"></circle>
+        <circle class="gauge-arc"></circle>
+        <text x="50%" y="50%"></text>
+      </svg>
+    </div>
+
+    <div class="control">
+      <label for="value">Value</label>
+      <input class="form-control" id="value" value="55" type="number" min="0" max="100">
+    </div>
+  </div>
+
+  <script src="./index.js"></script>
+
+  </body>
+</html>
+
+<!--
+
+
+<svg class="lh-gauge" viewBox="0 0 120 120">
+<circle class="lh-gauge-base" r="56" cx="60" cy="60" stroke-width="8"></circle>
+<circle class="lh-gauge-arc" r="56" cx="60" cy="60" stroke-width="8" style="transform: rotate(-90deg); stroke-dasharray: 288;"></circle>
+</svg>
+ -->
