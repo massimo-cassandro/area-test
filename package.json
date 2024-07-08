@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git+https://github.com/massimo-cassandro/area-test"
   },
+  "scripts": {
+    "python server": "python3 -m http.server 8000 # --directory __dirname__ # 8000 = default port"
+  },
   "author": "Massimo Cassandro",
   "license": "MIT",
   "bugs": {

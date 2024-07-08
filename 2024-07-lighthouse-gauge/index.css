@@ -37,7 +37,9 @@
 }
 .gauge-base, .gauge-arc{
   stroke-width: var(--stroke-width);
-  transition: all 0.5s linear;
+  transition: stroke-dasharray 0.5s linear;
+  transition: stroke 0.5s linear;
+  transition: fill 0.5s linear;
   r: calc(var(--radius) - var(--stroke-width) / 2);
   cx: var(--radius);
   cy: var(--radius);
