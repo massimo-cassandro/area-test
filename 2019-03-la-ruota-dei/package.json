@@ -2,21 +2,27 @@
   "name": "la-ruota-dei",
   "version": "1.0.0",
   "description": "La ruota dei...",
-  "devDependencies": {
-    "gulp-svgstore": "^7.0.1",
-    "gulp-chmod": "^2.0.0",
-    "gulp-file": "^0.3.0",
-    "gulp-svgmin": "^1.2.4",
-    "gulp-rename": "^1.4.0"
+  "scripts": {
+    "rollup": "npx rollup --config ./rollup.config.mjs --watch",
+    "sass": "npx sass ./src/la-ruota-dei.scss:./build/la-ruota-dei.css --load-path=./node_modules/ --style=compressed --watch",
+    "pug": "npx pug ./src/pug/index.pug --out ./build --watch",
+    "python server": "python3 -m http.server 8000 --directory ./build"
   },
   "dependencies": {
-    "@rollup/plugin-node-resolve": "^13.1.3",
-    "grabbable2": "git+https://github.com/massimo-cassandro/grabbable2.git",
+    "@eslint/js": "^9.12.0",
+    "@massimo-cassandro/eslint-config": "^2.0.4",
+    "@massimo-cassandro/stylelint-config": "^1.1.7",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@stylistic/stylelint-plugin": "^3.1.1",
+    "eslint": "^9.12.0",
+    "globals": "^15.11.0",
+    "pug": "^3.0.3",
     "pug-cli": "^1.0.0-alpha6",
-    "pug": "^3.0.2",
-    "rollup-plugin-sourcemaps": "^0.6.3",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup": "^2.66.1",
-    "sass": "^1.38.0"
+    "rollup": "^4.24.0",
+    "sass": "^1.79.5",
+    "stylelint": "^16.10.0",
+    "stylelint-config-css-modules": "^4.4.0",
+    "stylelint-config-twbs-bootstrap": "^15.1.0"
   }
 }

@@ -1,0 +1,60 @@
+/* stylelint-disable selector-max-id */
+/* stylelint-disable selector-id-pattern */
+.svg-titolo {
+  @extend %font-titoli;
+  //text-align: center;
+  /*
+  font-size:35px;
+  line-height: 1;
+  fill: #fff;
+  stroke:#000;
+  stroke-width:1px;
+*/
+}
+
+#ruota_fronte {
+
+  .finestra {
+    fill: #fff;
+    stroke: #000;
+    stroke-dasharray: 5;
+    stroke-width: 1px;
+  }
+
+
+  .deco {
+    fill: #fff;
+    stroke: #000;
+    stroke-width: .5px;
+  }
+
+}
+
+#ruota_retro{
+
+  .spicchi {
+
+    fill: none;
+    /* stylelint-disable-next-line color-named */
+    stroke: orange;
+    stroke-width: .5px;
+
+    @media print {
+      display: none;
+    }
+  }
+
+  .clipart {
+    //transform-origin: 50% 50%;
+    //transform: translateY(5%, 5%);
+
+    &-text {
+      font-family: Bevan, cursive;
+      font-size: 25px;
+      fill: #fff;
+      stroke: #000;
+      stroke-width: 1px;
+    }
+  }
+
+}

@@ -1,0 +1,17 @@
+/* stylelint-disable selector-max-id */
+#svg-wrapper {
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: .5rem;
+  border: 1px solid $grigio;
+  border-radius: $border-radius-lg;
+
+  > svg {
+    width: 45%;
+    height: auto;
+    margin: .5rem .5rem 1rem;
+  }
+
+}

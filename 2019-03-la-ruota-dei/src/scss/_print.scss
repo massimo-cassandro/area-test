@@ -1,0 +1,26 @@
+/* stylelint-disable selector-max-id */
+@media print {
+
+  header, main, footer {
+    display: none;
+  }
+
+  #svg-wrapper {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    border: none;
+    > svg {
+      width: 48%;
+      height: 48%;
+      margin: 10mm 0 0;
+
+    }
+  }
+
+  @page {
+    margin: 0;
+    size: a4 landscape;
+  }
+
+}

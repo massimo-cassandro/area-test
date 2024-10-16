@@ -1,0 +1,81 @@
+extends ./_tpl.pug
+
+block title
+  |La ruota dei&hellip; (due dischi)
+
+block svg_wrapper
+
+  div(hidden)
+    include ../assets/cliparts/cliparts.svg
+  include ../assets/ruota_fronte.svg
+  include ../assets/ruota_retro.svg
+
+
+block page_title
+  |Versione a due dischi
+
+block cliparts_info
+  p
+  |Fai clic per aggiungere le immagini alla ruota. Una volta aggiunte, trascinale per cambiarne la posizione.
+  br
+  |In base al tipo di impostazione scelta (una o due finestre) possono essere aggiunte: 12 immagini (senza testo)
+  | nel caso di impostazione ad una finestra; 6 immagini (con testo) nel caso di due finestre.
+
+block settings
+  .row
+    .col-sm-6.col-md-3
+      .form-group
+        label Finestrelle
+        .form-check
+          input.form-check-input(type="radio" name="finestre" id="finestre1" value="1" checked)
+          label.form-check-label(for="finestre1") Una finestra
+
+        .form-check
+          input.form-check-input(type="radio" name="finestre" id="finestre2" value="2")
+          label.form-check-label(for="finestre2") Due finestre
+
+    .col-sm-6.col-md-3
+      .form-group
+        label Mostra decorazioni
+        .form-check
+          input.form-check-input(type="radio" name="deco" id="deco_on" value="0" checked)
+          label.form-check-label(for="deco_on") Sì
+
+        .form-check
+          input.form-check-input(type="radio" name="deco" id="deco_off" value="1")
+          label.form-check-label(for="deco_off") No
+
+    .col-sm-6.col-md-3
+      .form-group
+        label Caratteri titolo
+        .form-check
+          input.form-check-input(type="radio" name="caratteri_titolo" id="outline" value="1" checked)
+          label.form-check-label(for="outline") Outline
+
+        .form-check
+          input.form-check-input(type="radio" name="caratteri_titolo" id="nero" value="0")
+          label.form-check-label(for="nero") Nero
+
+    .w-100.d-none.d-md-block
+
+    .col-sm-6.col-lg-3
+      .form-group
+        label(for="titolo1") Titolo 1
+        input.form-control#titolo1(value="La ruota dei..." placeholder="Titolo di sinistra" maxlength="20" type="text")
+
+    .col-sm-6.col-lg-3
+      .form-group
+        label(for="titolo2") Titolo 2
+        input.form-control#titolo2(value="...???" placeholder="Titolo di destra" maxlength="20" type="text")
+
+    .col-sm-6.col-lg-3
+      .form-group
+        label(for="dim_titolo1") Dimensioni titolo 1
+        input.form-control#dim_titolo1(value="35" type="range" min="15" max="55" step="1")
+
+    .col-sm-6.col-lg-3
+      .form-group
+        label(for="dim_titolo2") Dimensioni titolo 2
+        input.form-control#dim_titolo2(value="35" type="range" min="15" max="55" step="1")
+
+

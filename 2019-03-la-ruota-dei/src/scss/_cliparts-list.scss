@@ -1,0 +1,44 @@
+/* stylelint-disable scss/dollar-variable-pattern */
+$clipart_size: 6rem;
+$cliparts-margin: .5rem;
+
+.cliparts-list {
+
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(auto-fill, $clipart_size * 1.2);
+  grid-gap: $cliparts-margin * 2;
+  justify-content: space-between;
+  justify-items: center;
+
+  .clipart {
+    padding: $cliparts-margin;
+    text-align: center;
+    border: 1px solid $grigio;
+    border-radius: $border-radius;
+    transition: transform 400ms ease-out;
+
+    &:hover {
+      border-color: $rosso;
+      transform: scale(1.15);
+    }
+  }
+
+  svg {
+    display: block;
+    width: $clipart_size;
+    height: $clipart_size;
+    //margin: $cliparts-margin;
+    background: transparent;
+    fill: #333;
+  }
+
+  .clipart-dida {
+    max-width: 100%;
+    margin: .3rem 0 0;
+    overflow: hidden;
+    font-size: 80%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

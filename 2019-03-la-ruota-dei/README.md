@@ -1,8 +1,8 @@
 # La ruota dei...
 
-Marzo 2019
+Marzo 2019. Aggiornamwnto dipendenze Ott 2024
 
-[Demo](https://massimo-cassandro.github.io/area-test/2019-03-la-ruota-dei/index.html)
+[Demo](https://massimo-cassandro.github.io/area-test/2019-03-la-ruota-dei/build/index.html)
 
 ## illustrazioni:
 
@@ -22,11 +22,11 @@ Marzo 2019
 ## Per aggiungere altre clipart:
 
 Registrare nuove immagini SVG (meglio se il viewBox è quadrato) nella directory `/assets/cliparts/`,
-quindi lanciare lo script *gulp* `cliparts_gulpfile.js` (consulta `package.json` per i moduli necessari)
+quindi lanciare lo script `gulpfile.js` (consulta `package.json` per i moduli necessari)
 per aggiornare il file dei simboli `cliparts.svg` e
-la lista `cliparts_list.js`.
+la lista `cliparts-list.js`.
 
-Successivamente è necessario rigenerare il file `la-ruota-dei-min.js` per acquisire le nuove clipart.
+Successivamente è necessario ricompilare il file `la-ruota-dei.min.js` per acquisire le nuove clipart.
 
 Il file `cliparts.sketch` contiene le clipart incluse nel progetto.
 

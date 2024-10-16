@@ -1,0 +1,24 @@
+h1, h2, h3 {
+  @extend %font-titoli;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: $grigio-scuro;
+}
+
+
+footer {
+  svg {
+    width: 2rem;
+    height: 2rem;
+    fill: $grigio;
+  }
+}
+
+
+label:not(.form-check-label) {
+  margin-bottom: .2rem;
+  font-size: .85rem;
+  font-weight: 700;
+}
