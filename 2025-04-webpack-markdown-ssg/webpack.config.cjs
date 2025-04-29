@@ -4,13 +4,12 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-const PACKAGE = require('./package.json');
 const path = require('path');
-// const fs = require('fs');
 
 const DOMPurify = require('isomorphic-dompurify');
 const { marked } = require('marked');
 const getMarkdownFiles = require('./src/webpack-getMarkdown.cjs');
+const htmlLoader = require('html-loader');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -18,7 +17,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 const config = {
   mode: isDevelopment? 'development' : 'production',
 
-  watch: true,
+  // watch: true,
 
   devtool: isDevelopment? 'inline-source-map' : false,
 
@@ -101,47 +100,53 @@ const config = {
     // Determine how modules within the project are treated
     rules: [
 
+      // NON FUNZIONA
       // =>> rules: markdown (marked + html-loader)
       // https://github.com/webpack-contrib/html-loader
       // https://marked.js.org/
       // https://github.com/cure53/DOMPurify
+      // {
+      //   test: /(\.md)$/i,
+      //   // type: 'asset/source',
+      //   use: [
+      //     {
+      //       loader: "html-loader",
+      //       options: {
+      //         esModule: false,
+      //         preprocessor: (content, loaderContext) => {
+      //           console.log(loaderContext);
+      //           try {
+      //             // return DOMPurify.sanitize(marked.parse(content));
+      //             return marked.parse(content);
+
+      //           } catch (error) {
+      //             loaderContext.emitError(error);
+      //             return content;
+      //           }
+      //         },
+      //       },
+      //     },
+      //   ],
+      // },
+
+      // =>> rules: markdown (html-loader + marked)
+      // https://github.com/peerigon/markdown-loader
       {
-        test: /(\.md)$/i,
-        // type: 'asset/source',
+        test: /\.md$/,
         use: [
           {
             loader: "html-loader",
+          },
+          {
+            loader: "markdown-loader",
             options: {
-              preprocessor: (content, loaderContext) => {
-                console.log( content);
-                try {
-                  console.log( DOMPurify.sanitize(marked.parse(content)));
-                  return DOMPurify.sanitize(marked.parse(content));
-
-                } catch (error) {
-                  loaderContext.emitError(error);
-                  return content;
-                }
-              },
+              // Pass options to marked
+              // See https://marked.js.org/using_advanced#options
             },
           },
         ],
       },
-      // {
-      //   test: /(\.md)$/i,
-      //   use: [
-      //     {
-      //       loader: "html-loader",
-      //     },
-      //     {
-      //       loader: "markdown-loader",
-      //       options: {
-      //         // Pass options to marked
-      //         // See https://marked.js.org/using_advanced#options
-      //       },
-      //     },
-      //   ],
-      // }
+
 
       // =>> rules: Images / pdf
       {
@@ -168,16 +173,57 @@ const config = {
   plugins: [
 
     // =>> HtmlWebpackPlugin
+    // https://github.com/jantimon/html-webpack-plugin#html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'index.html',
-        template: './src/index.ejs',
-        inject: false,
-        title: 'text Markdown',
-        // chunks: ['app'],
-        minify: false,
-        templateParameters: {
-          mdContent: getMarkdownFiles(),
-        }
+      template: './src/index.ejs',
+      inject: false,
+      title: 'text Markdown',
+      // chunks: ['app'],
+      minify: false,
+
+      // NON RISOLVE i percorsi dei file inclusi
+      // templateParameters: {
+      //   mdContent: getMarkdownFiles() || ''
+      // }
+
+      // NON FUNZIONA
+      // templateParameters: async (compilation, assets, assetTags, options) => {
+      //   const dynamicHtml = getMarkdownFiles() || '';
+
+      //   if (typeof dynamicHtml !== 'string') {
+      //     throw new Error('dynamicHtml deve essere una stringa valida');
+      //   }
+
+      //   // Elabora la stringa HTML con html-loader
+      //   const moduleCode = await htmlLoader.call(
+      //     // Simula il contesto `this` per html-loader
+      //     {
+      //       getOptions: () => ({ esModule: false }), // Disabilita gli ES Modules
+      //       resourcePath: 'dynamic.html', // Nome fittizio per il file
+      //       context: path.resolve(__dirname, './src'), // Contesto del progetto
+      //       emitFile: (name, content) => compilation.emitAsset(name, new webpack.sources.RawSource(content)),
+      //       rootContext: path.resolve(__dirname),
+      //       fs: compilation.inputFileSystem, // File system virtuale di Webpack
+      //       addDependency: () => {}, // Stub per evitare errori
+      //       emitError: console.error, // Per gestire eventuali errori
+      //     },
+      //     dynamicHtml
+      //   );
+      //   const processedHtml = eval(moduleCode); // Usa eval per eseguire il modulo e ottenere l'HTML
+      //   return {
+      //     mdContent: processedHtml,
+
+      //     // Altri parametri
+      //     compilation: compilation,
+      //     webpackConfig: compilation.options,
+      //     htmlWebpackPlugin: {
+      //       tags: assetTags,
+      //       files: assets,
+      //       options: options,
+      //     },
+      //   };
+      // },
     }), // end HtmlWebpackPlugin
   ],
 

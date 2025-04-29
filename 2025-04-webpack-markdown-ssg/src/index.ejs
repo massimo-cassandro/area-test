@@ -12,8 +12,26 @@
     <div id="root"></div>
     <div>
       <p>---------------</p>
-      <%= mdContent.content %>
+      <%= require('./test.md').default %>
+      <%= JSON.stringify(require('./test.md')) %>
       <p>---------------</p>
+      <!--
+      <p>&nbsp;</p>
+      <p>---------------</p>
+      < %= mdContent % >
+      <p>---------------</p>
+      -->
+      <p>&nbsp;</p>
+      <p>---------------</p>
+      <%= require('html-loader!./control.html').default %>
+      <p>---------------</p>
+
+      <!-- NON FUNZIONA -->
+      <p>&nbsp;</p>
+      <p>---------------</p>
+      <%= require('html-loader!./markdown-joiner.ejs').default %>
+      <p>---------------</p>
+
     </div>
 
     <%= htmlWebpackPlugin.tags.bodyTags %>

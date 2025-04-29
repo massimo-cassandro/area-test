@@ -1,5 +1,5 @@
-import text from './test.md';
+// import text from './test.md';
 
-console.log(text);
+// console.log(text);
 
-document.getElementById('root').innerHTML = text;
+// document.getElementById('root').innerHTML = text;
