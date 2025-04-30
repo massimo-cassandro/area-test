@@ -146,6 +146,30 @@ const config = {
           },
         ],
       },
+      // =>> rules: ejs
+      // https://www.npmjs.com/package/ejs-loader
+      // NON FUNZIONA
+      // {
+      //   test: /(\.ejs)$/,
+      //   use: [
+      //     {
+      //       loader: 'ejs-loader',
+      //       options: {}
+      //     }
+      //   ]
+      // },
+
+      // https://github.com/snoleo/ejs-easy-loader
+      // NON FUNZIONA
+      // {
+      //   test: /\.ejs$/i,
+      //   use: [
+
+      //     {
+      //       loader: 'ejs-easy-loader'
+      //     }
+      //   ]
+      // },
 
 
       // =>> rules: Images / pdf
@@ -183,9 +207,9 @@ const config = {
       minify: false,
 
       // NON RISOLVE i percorsi dei file inclusi
-      // templateParameters: {
-      //   mdContent: getMarkdownFiles() || ''
-      // }
+      templateParameters: {
+        mdContent: getMarkdownFiles() || ''
+      }
 
       // NON FUNZIONA
       // templateParameters: async (compilation, assets, assetTags, options) => {

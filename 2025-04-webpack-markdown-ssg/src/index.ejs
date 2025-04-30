@@ -7,30 +7,40 @@
 
     <title><%= htmlWebpackPlugin.options.title %></title>
     <%= htmlWebpackPlugin.tags.headTags %>
+    <style>
+    code {color: rgb(77, 3, 73);}
+    </style>
   </head>
   <body>
-    <div id="root"></div>
     <div>
       <p>---------------</p>
-      <%= require('./test.md').default %>
-      <%= JSON.stringify(require('./test.md')) %>
-      <p>---------------</p>
-      <!--
-      <p>&nbsp;</p>
-      <p>---------------</p>
-      < %= mdContent % >
-      <p>---------------</p>
-      -->
-      <p>&nbsp;</p>
-      <p>---------------</p>
+      <p>test version with include in html</p>
       <%= require('html-loader!./control.html').default %>
       <p>---------------</p>
-
-      <!-- NON FUNZIONA -->
       <p>&nbsp;</p>
       <p>---------------</p>
-      <%= require('html-loader!./markdown-joiner.ejs').default %>
+      <p>Client side</p>
+      <div id="root"></div>
       <p>---------------</p>
+      <p>&nbsp;</p>
+      <p>---------------</p>
+      <p>Using markdown-loader</p>
+      <%= require('./test.md').default %>
+      <!-- < %= JSON.stringify(require('./test.md')) % > -->
+      <p>---------------</p>
+
+      <p>&nbsp;</p>
+      <p>---------------</p>
+      <p>Using <code>templateParameters</code>. Doesn't resolve linked files paths</p>
+      <%= mdContent %>
+      <p>---------------</p>
+
+      <!-- <p>&nbsp;</p>
+      <p>---------------</p>
+      <p>More md files joined in another ejs file</p>
+      <p>Doesn't work</p>
+      < %= require("./markdown-joiner.ejs")() % >
+      <p>---------------</p> -->
 
     </div>
 
