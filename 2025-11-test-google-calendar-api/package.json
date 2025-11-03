@@ -1,0 +1,8 @@
+{
+  "name": "test-google-calendar-api",
+  "version": "0.1.0",
+  "description": "",
+  "type": "module",
+  "main": "index.php",
+  "scripts": {}
+}

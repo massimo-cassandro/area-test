@@ -1,0 +1,7 @@
+{
+    "name": "mazz/test-google-calendar-api",
+    "type": "project",
+    "require": {
+        "google/apiclient": "^2.0"
+    }
+}
