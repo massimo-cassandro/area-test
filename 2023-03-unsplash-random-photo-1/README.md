@@ -2,10 +2,10 @@
 
 mar 2023
 
-Random photo using unsplash api
+Random photo using the [Unsplash Api](https://unsplash.com/developers).
 
-[demo](https://massimo-cassandro.github.io/area-test/2023-03-unsplash-random-photo-1/index.html)
+[demo](https://massimo-cassandro.github.io/area-test/2023-03-unsplash-random-photo-1/index.html).
 
-[demo 2](https://massimo-cassandro.github.io/area-test/2023-03-unsplash-random-photo-1/index2.html)
+Icons from [Phosphor Icons](https://phosphoricons.com/).
 
-See also <https://github.com/massimo-cassandro/unsplash-page>
+See also <https://github.com/massimo-cassandro/unsplash-page>.

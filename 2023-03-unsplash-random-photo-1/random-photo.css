@@ -7,11 +7,6 @@ html, body {
 * {
   box-sizing: border-box;
 }
-.container {
-  position: relative;
-  width: 100dvw;
-  height: 100dvh;
-}
 
 canvas {
   position: absolute;
@@ -20,39 +15,46 @@ canvas {
   height: 100%;
 }
 
-.container img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+.container {
+  position: relative;
+  width: 100dvw;
+  height: 100dvh;
 
-  font-size: 1.2rem;
-  color: #999;
-  text-align: center;
-  opacity: 0;
-  transition: opacity .3s linear;
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    font-size: 1.2rem;
+    color: #999;
+    text-align: center;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity .3s linear;
+  }
+  &.show img {
+    opacity: 1;
+  }
+
+  &.full-img {
+    display: grid;
+    place-content: center;
+
+    img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 100%;
+      object-fit: none;
+    }
+
+    /* .credits {
+      display: none !important;
+    } */
+  }
 }
 
-.container img.show {
-  opacity: 1;
-}
-
-.message, .credits {
-  color: #fff;
-  background-color: rgba(0 0 0 / .7);
-}
-.message {
-  position: absolute;
-  bottom: 30%;
-  left: 0;
-  padding: .5rem 3rem;
-}
-.message h1 {
-  margin: 0;
-  font-weight: 700;
-  line-height: 1;
-}
 
 .credits {
   position: absolute;
@@ -68,16 +70,26 @@ canvas {
   font-size: .8rem;
   font-weight: 400;
   line-height: 1.4;
+  color: #fff;
+  background-color: rgba(0 0 0 / .7);
+  opacity: 0;
+  transition: opacity .6s linear;
+
+  .container.show & {
+    opacity: 1;
+  }
+
+  a {
+    color: #fc0;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
 }
 
-.credits a {
-  color: #fc0;
-  text-decoration: none;
-}
-
-.credits a:hover {
-  text-decoration: underline;
-}
 
 
 /* https://wweb.dev/resources/loader-generator/ */
@@ -88,7 +100,7 @@ canvas {
 
 .loader-wrapper {
   position: absolute;
-  top:50%;
+  top: 50%;
   left: 50%;
   z-index: -1;
   transform: translate(-50%, -50%);
@@ -128,13 +140,76 @@ canvas {
   mask-composite: intersect;
   animation: spin 1000ms infinite steps(10);
 }
-@keyframes spin { to { transform: rotate(1turn) } }
+@keyframes spin { to { transform: rotate(1turn); } }
 
-.arrow {
-  position: relative;
-  top: 3px;
-  opacity: 0;
+/* icone */
+.icons {
+  position: absolute;
+  right: 1rem;
+  bottom: 6rem;
+  z-index: 999;
+  display: none;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+
+  > div, > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: .4rem;
+    cursor: pointer;
+    background-color: hsl(76deg 95% 43% / .8);
+    border: none;
+    border-radius: 50%;
+    box-shadow: none;
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      fill: #000;
+      transition: scale .2s ease-in-out;
+
+      &.off {
+        display: none;
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    & :is(div, button):hover {
+      background-color: hsla(76, 87%, 69%, 0.8);
+    }
+  }
+
+  & :is(div, button):active img {
+    scale: 1.2;
+  }
 }
-.credits:hover .arrow {
-  opacity:1;
+
+
+.container.show .icons {
+  display: flex;
+}
+
+.slideshow {
+
+  &.off {
+    background-color: #ddd;
+    opacity: .6;
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 400px) {
+  bottom: 3rem;
 }

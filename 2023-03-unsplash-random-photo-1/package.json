@@ -1,8 +1,12 @@
 {
   "name": "unsplash-random-photo-1",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Massimo Cassandro",
   "license": "MIT",
+
+  "scripts": {
+    "python server": "python3 -m http.server 8000 # --directory __dirname__ # 8000 = default port"
+  },
 
   "dependencies": {
     "blurhash": "^2.0.5"

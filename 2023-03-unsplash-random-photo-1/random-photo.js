@@ -1,4 +1,4 @@
-// import {access_key} from './apikey.js';
+// import {access_key} from './apikey.js'; // local testing
 import {breakpoints} from './img-breakpoints.js';
 import { decode } from './blurhash/dist/esm/index.js';
 
@@ -9,8 +9,15 @@ import { decode } from './blurhash/dist/esm/index.js';
 
   const container = document.querySelector('.container'),
     credits_container = document.querySelector('.credits'),
-    url = 'https://primominuto.altervista.org/proxy/getUnsplashPhotos.php?m=tfc4lmFw',
-    debug = false; // add debug info
+    reload_btn = document.querySelector('.reload'),
+    full_img_btn = document.querySelector('.full-img-trigger'),
+    slideshow_btn = document.querySelector('.slideshow'),
+    photo_link = document.querySelector('.photo-link');
+
+  let slideshowOn = false;
+
+  // production
+  const url = 'https://primominuto.altervista.org/proxy/getUnsplashPhotos.php?m=tfc4lmFw';
 
   // local testing
   // const collections_ids = '3660951', // comma separated
@@ -20,149 +27,170 @@ import { decode } from './blurhash/dist/esm/index.js';
   //     (orientation? `&orientation=${orientation}` : '') +
   //     `&client_id=${access_key}`;
 
+  const load_image = () => {
 
-  (async () => {
-    const response = await fetch(url);
-    if (!response.ok) {
-      /* eslint-disable no-console */
-      console.error('Ajax error on: ' + url);
-      console.error(response);
-      /* eslint-enable no-console */
-      throw `Loading error: ${response.status}`;
-    }
-    const data = await response.json();
-    return data;
-  })()
-    .then(data => {
+    container.classList.remove('show');
 
-      // used data
-      const photo = {
-        id               : data.id,
-        color            : data.color,
-        width            : data.width,
-        height           : data.height,
-        description      : data.description,
-        location         : data.location?.name,
-        alt_description  : data.alt_description,
-        date             : data.created_at,
-        base_url         : data.urls.raw,
-        unsplash_url     : data.links.html,
-        author           : data.user.name?? data.user.username,
-        author_profile   : data.user.links.html,
-        blur_hash        : data.blur_hash
-      };
+    (async () => {
+      const response = await fetch(url);
+      if (!response.ok) {
+        /* eslint-disable no-console */
+        console.error('Ajax error on: ' + url);
+        console.error(response);
+        /* eslint-enable no-console */
+        throw `Loading error: ${response.status}`;
+      }
+      const data = await response.json();
+      return data;
+    })()
+      .then(data => {
 
-      // console.log(photo);
+        // used data
+        const photo = {
+          id               : data.id,
+          color            : data.color,
+          width            : data.width,
+          height           : data.height,
+          description      : data.description,
+          location         : data.location?.name,
+          alt_description  : data.alt_description,
+          date             : data.created_at,
+          base_url         : data.urls.raw,
+          unsplash_url     : data.links.html,
+          author           : data.user.name?? data.user.username,
+          author_profile   : data.user.links.html,
+          blur_hash        : data.blur_hash
+        };
 
+        // console.log(photo);
 
+        container.querySelector('picture')?.remove();
 
-      // https://docs.imgix.com/apis/rendering/format/fm
-      const formats = ['avif', 'webp', 'pjpg']; // `fm` parameter, in order of use
+        // https://docs.imgix.com/apis/rendering/format/fm
+        const formats = ['avif', 'webp', 'pjpg']; // `fm` parameter, in order of use
 
-      container.insertAdjacentHTML('afterbegin',
-        `<picture>
-          ${breakpoints.map((brk, idx) => {
+        container.insertAdjacentHTML('afterbegin',
+          `<picture>
+            ${breakpoints.map((brk, idx) => {
 
-            const is_last_brk = idx === breakpoints.length - 1;
-            return formats.map(fmt => {
-              const is_default_fmt = fmt === formats.at(-1),
+              const is_last_brk = idx === breakpoints.length - 1;
+              return formats.map(fmt => {
+                const is_default_fmt = fmt === formats.at(-1),
 
-                // https://unsplash.com/documentation#supported-parameters
-                // https://docs.imgix.com/apis/rendering/size/w
-                // https://docs.imgix.com/apis/rendering/size/h
-                // https://docs.imgix.com/apis/rendering/size/ar
-                // https://docs.imgix.com/apis/rendering/size/fit
-                // https://docs.imgix.com/apis/rendering/size/crop
-                // https://docs.imgix.com/apis/rendering/format/q
+                  // https://unsplash.com/documentation#supported-parameters
+                  // https://docs.imgix.com/apis/rendering/size/w
+                  // https://docs.imgix.com/apis/rendering/size/h
+                  // https://docs.imgix.com/apis/rendering/size/ar
+                  // https://docs.imgix.com/apis/rendering/size/fit
+                  // https://docs.imgix.com/apis/rendering/size/crop
+                  // https://docs.imgix.com/apis/rendering/format/q
 
-              src_url = is2x => {
-                let url = photo.base_url + (/\?/.test(photo.base_url)? '&' : '?') +
-                  'fit=crop&crop=focalpoint' + // top, bottom, left, right, faces, focalpoint, edges, and entropy
-                  '&q=80' +
-                  `&w=${brk.w}&h=${brk.h}` +
-                  `&fm=${fmt}`;
+                src_url = is2x => {
+                  let url = photo.base_url + (/\?/.test(photo.base_url)? '&' : '?') +
+                    'fit=crop&crop=focalpoint' + // top, bottom, left, right, faces, focalpoint, edges, and entropy
+                    '&q=80' +
+                    `&w=${brk.w}&h=${brk.h}` +
+                    `&fm=${fmt}`;
 
-                if(debug) {
-                  url += `&txt=${encodeURI(`${brk.name}${is2x? '+2x' : ''}`)}` +
-                    '&txt-pad=20' +
-                    '&txt-font=Arial+Narrow+Bold' +
-                    '&txt-align=middle,center' +
-                    // '&txt-y=100' +
-                    `&txt-size=${brk.name === 'xs'? '24' : brk.name === 'sm'? '36' : '48'}` +
-                    '&txt-color=FFFFFF' +
-                    // '&txt-line=1' +
-                    '&txt-shad=10' +
-                    '&txt-line-color=ffffff';
+                  return url;
+                };
+
+                if(is_last_brk && is_default_fmt) {
+
+                  return `<img
+                    style
+                    src="${src_url()}"
+                    srcset="${src_url()}${brk.dpr2? ` 1x, ${src_url(true)}&dpr=2 2x` : ''}"
+                    alt="${photo.alt_description?? `${photo.author} / Unsplash`}"
+                    width="${brk.w}" height="${brk.h}">`;
+
+                } else {
+                  return `<source
+                    srcset="${src_url()}${brk.dpr2? ` 1x, ${src_url(true)}&dpr=2 2x` : ''}"
+                    ${!is_default_fmt? `type="image/${fmt}"` : ''}
+                    media="${brk.mq}"
+                    width="${brk.w}" height="${brk.h}">`;
                 }
-                return url;
-              };
+              }).join('');
+            }).join('')}
+          </picture>`
+        );
 
-              if(is_last_brk && is_default_fmt) {
+        const img = document.querySelector('img');
 
-                return `<img
-                  style
-                  src="${src_url()}"
-                  srcset="${src_url()}${brk.dpr2? ` 1x, ${src_url(true)}&dpr=2 2x` : ''}"
-                  alt="${photo.alt_description?? `${photo.author} / Unsplash`}"
-                  width="${brk.w}" height="${brk.h}">`;
+        // blurhash
+        // https://blurha.sh/
+        // https://github.com/woltapp/blurhash
+        // https://github.com/woltapp/blurhash/tree/master/TypeScript
+        // https://github.com/mad-gooze/fast-blurhash
+        // https://blog.scaleflex.com/the-ultimate-guide-to-fast-loading-websites-with-blurhash/
+        // https://codesandbox.io/s/blurhash-preview-forked-70zbjx
 
-              } else {
-                return `<source
-                  srcset="${src_url()}${brk.dpr2? ` 1x, ${src_url(true)}&dpr=2 2x` : ''}"
-                  ${!is_default_fmt? `type="image/${fmt}"` : ''}
-                  media="${brk.mq}"
-                  width="${brk.w}" height="${brk.h}">`;
-              }
-            }).join('');
-          }).join('')}
-        </picture>`
-      );
+        const pixels = decode(photo.blur_hash, img.width, img.height);
 
-      const img = document.querySelector('img');
+        container.querySelector('canvas')?.remove();
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext('2d');
+        const imageData = ctx.createImageData(window.innerWidth, window.innerHeight);
+        imageData.data.set(pixels);
+        ctx.putImageData(imageData, 0, 0);
 
-      // blurhash
-      // https://blurha.sh/
-      // https://github.com/woltapp/blurhash
-      // https://github.com/woltapp/blurhash/tree/master/TypeScript
-      // https://github.com/mad-gooze/fast-blurhash
-      // https://blog.scaleflex.com/the-ultimate-guide-to-fast-loading-websites-with-blurhash/
-      // https://codesandbox.io/s/blurhash-preview-forked-70zbjx
+        container.insertAdjacentElement('afterbegin', canvas);
 
-      const pixels = decode(photo.blur_hash, img.width, img.height);
+        img.onload = () => {
+          container.classList.add('show');
+        };
 
-      const canvas = document.createElement('canvas');
-      canvas.width = img.width;
-      canvas.height = img.height;
-      const ctx = canvas.getContext('2d');
-      const imageData = ctx.createImageData(img.width, img.height);
-      imageData.data.set(pixels);
-      ctx.putImageData(imageData, 0, 0);
+        // photo credits
+        const description = [photo.description, photo.location]
+          .filter(i => i != null)
+          .join (' / ');
 
-      container.insertAdjacentElement('afterbegin', canvas);
+        photo_link.querySelector('a').href = `${photo.unsplash_url}?utm_source=test-app&utm_medium=referral`;
 
-      img.onload = () => {
-        document.querySelector('.loader-wrapper')?.remove();
-        img.classList.add('show');
-      };
+        credits_container.innerHTML =
+          `<span>${description}</span>
+          <span>Photo <a href="${photo.author_profile}?utm_source=test-app&utm_medium=referral">
+            ${photo.author} / Unsplash
+          </a></span>`;
+      })
+      .catch(error => {
+        // eslint-disable-next-line no-console
+        console.error(error);
+      });
+  };
 
-      // photo credits
-      const description = [photo.description, photo.location]
-        .filter(i => i != null)
-        .join (' / ');
+  let timeoutID;
+  function runSlideShow() {
 
-      credits_container.innerHTML =
-        `<span>${description}
-          <a class="arrow" href="${photo.unsplash_url}?utm_source=test-app&utm_medium=referral">&#8618;</a>
-        </span>
-        <span>Photo <a href="${photo.author_profile}?utm_source=test-app&utm_medium=referral">
-          ${photo.author} / Unsplash
-        </a></span>`;
-    })
-    .catch(error => {
-      // eslint-disable-next-line no-console
-      console.error(error);
-    });
+    if(slideshowOn) {
+      timeoutID = setTimeout(() => {
+        load_image();
+        runSlideShow();
+      }, 8000);
+    } else {
+      clearTimeout(timeoutID);
+    }
+  }
 
+  reload_btn.addEventListener('click', () => {
+    load_image();
+    // container.classList.remove('full-img');
+  }, false);
 
+  full_img_btn.addEventListener('click', () => {
+    container.classList.toggle('full-img');
+    full_img_btn.querySelectorAll('img').forEach(im => im.classList.toggle('off'));
+  }, false);
+
+  slideshow_btn.addEventListener('click', () => {
+    slideshow_btn.classList.toggle('off');
+    slideshowOn = !slideshow_btn.classList.contains('off');
+    runSlideShow();
+  });
+
+  load_image();
 
 })();
