@@ -1,4 +1,4 @@
-# Unsplash Random Photo 1
+# Unsplash Random Photo
 
 * March 2023
 * v.2 May 2026
