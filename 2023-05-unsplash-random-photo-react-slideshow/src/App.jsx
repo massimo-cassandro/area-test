@@ -17,7 +17,7 @@ function App() {
       </div>
 
       <p>A presentation demo based on the Unsplash APIs</p>
-      <p><a href="https://github.com/massimo-cassandro/area-test/tree/main/2023-05-unsplash-random-photo-2">Source</a></p>
+      <p><a href="https://github.com/massimo-cassandro/area-test/tree/main/2023-05-unsplash-random-photo-react-slideshow">Source</a></p>
     </main>
   );
 }
