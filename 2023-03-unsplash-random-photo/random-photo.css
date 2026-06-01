@@ -167,6 +167,17 @@ canvas {
     border-radius: 50%;
     box-shadow: none;
 
+    &.btn-off {
+      background-color: #ddd;
+      opacity: .6;
+
+      @media (hover: hover) {
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
     img {
       display: block;
       width: 100%;
@@ -191,23 +202,43 @@ canvas {
   }
 }
 
+.slideshow {
+  position: relative;
+  z-index: 1;
+}
+
+
+.progress-ring {
+  --inset-offset: 2px;
+  position: absolute;
+  inset: var(--inset-offset);
+  display: block;
+  width: calc(100% - var(--inset-offset) * 2);
+  aspect-ratio: 1;
+  overflow: visible;
+  pointer-events: none;
+  transform-origin: center;
+  rotate: -90deg;
+}
+
+.progress-ring circle {
+  --stroke-width: 0.05;
+  --radius: calc(0.5 - var(--stroke-width) / 2);
+  --circumference: calc(2 * pi * var(--radius));
+  cx: 0.5;
+  cy: 0.5;
+  r: var(--radius);
+  fill: none;
+  stroke: #000;
+  stroke-dasharray: var(--circumference);
+  stroke-dashoffset: calc(var(--circumference) * (1 - var(--progress, 0)));
+  stroke-width: var(--stroke-width);
+  transition: stroke-dashoffset 0.1s linear;
+}
+
 
 .container.show .icons {
   display: flex;
-}
-
-.slideshow {
-
-  &.off {
-    background-color: #ddd;
-    opacity: .6;
-
-    @media (hover: hover) {
-      &:hover {
-        opacity: 1;
-      }
-    }
-  }
 }
 
 @media screen and (min-width: 400px) {

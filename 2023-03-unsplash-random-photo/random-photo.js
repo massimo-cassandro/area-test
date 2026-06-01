@@ -5,14 +5,8 @@ import { decode } from './blurhash/dist/esm/index.js';
 // https://unsplash.com/documentation
 // https://unsplash.com/documentation#get-a-random-photo
 
-const container = document.querySelector('.container'),
-  credits_container = document.querySelector('.credits'),
-  reload_btn = document.querySelector('.reload'),
-  full_img_btn = document.querySelector('.full-img-trigger'),
-  slideshow_btn = document.querySelector('.slideshow'),
-  photo_link = document.querySelector('.photo-link');
-
-let slideshowOn = false, getUnsplashDataUrl;
+const container = document.querySelector('.container');
+let getUnsplashDataUrl;
 
 if(document.location.host === '[::1]:8000') {
 
@@ -197,11 +191,9 @@ const load_image = async () => {
     .filter(Boolean)
     .join (' / ');
 
-  photo_link.querySelector('a').href = `${unsplashData.unsplash_url}?utm_source=test-app&utm_medium=referral`;
+  document.querySelector('.photo-link').querySelector('a').href = `${unsplashData.unsplash_url}?utm_source=test-app&utm_medium=referral`;
 
-
-
-  credits_container.replaceChildren(
+  document.querySelector('.credits').replaceChildren(
     creatEl('span', { textContent: description }),
     creatEl('span', { textContent: 'Photo ' },
       creatEl('a', {
@@ -210,35 +202,120 @@ const load_image = async () => {
       })
     )
   );
+
 }; // end load_image
 
-let timeoutID;
-function runSlideShow() {
 
-  if(slideshowOn) {
-    timeoutID = setTimeout(async () => {
-      await load_image();
-      runSlideShow();
-    }, 12000);
+
+
+
+// let timeoutID;
+// function runSlideShow() {
+
+//   if(slideshowOn) {
+//     timeoutID = setTimeout(async () => {
+//       await load_image();
+//       runSlideShow();
+//     }, 12000);
+//   } else {
+//     clearTimeout(timeoutID);
+//   }
+// }
+
+// slideshow_btn.addEventListener('click', () => {
+//   slideshow_btn.classList.toggle('btn-off');
+//   slideshowOn = !slideshow_btn.classList.contains('btn-off');
+//   runSlideShow();
+// });
+
+
+/// -------- SLIDESHOW -----------
+const slideshow_btn = document.querySelector('.slideshow'),
+  slideshow_circle = slideshow_btn.querySelector('circle'),
+  duration = 12000;
+
+let startTime = null,
+  animationFrameId = null,
+  slideshowOn = false;
+
+
+function animateProgress(timestamp) {
+  if (!startTime) startTime = timestamp;
+
+  const elapsed = timestamp - startTime;
+  const progress = Math.min(elapsed / duration, 1);
+
+  // update circle
+  slideshow_circle.style.setProperty('--progress', progress);
+
+  if (progress < 1) {
+    // continue animation
+    if (slideshowOn) {
+      animationFrameId = requestAnimationFrame(animateProgress);
+    }
   } else {
-    clearTimeout(timeoutID);
+    // end cycle
+    onTimeoutTriggered();
   }
 }
 
-reload_btn.addEventListener('click', async () => {
+// end cycle and start new one
+async function onTimeoutTriggered() {
+  await load_image();
+
+  startTime = null;
+  animationFrameId = requestAnimationFrame(animateProgress);
+}
+
+slideshow_btn.addEventListener('click', () => {
+  slideshowOn = !slideshowOn;
+  slideshow_btn.classList.toggle('btn-off', !slideshowOn);
+
+  if (slideshowOn) {
+    startTime = null;
+    animationFrameId = requestAnimationFrame(animateProgress);
+  }
+
+  // stop anumation
+  else {
+    cancelAnimationFrame(animationFrameId);
+    slideshow_circle.style.setProperty('--progress', 0);
+  }
+});
+
+// -------- RELOAD -----------
+document.querySelector('.reload').addEventListener('click', async () => {
   await load_image();
   // container.classList.remove('full-img');
 }, false);
 
+// -------- CHANGES IMG OBJECT-FIT PROPERTY -----------
+const full_img_btn = document.querySelector('.full-img-trigger');
 full_img_btn.addEventListener('click', () => {
   container.classList.toggle('full-img');
   full_img_btn.querySelectorAll('img').forEach(im => im.classList.toggle('off'));
 }, false);
 
-slideshow_btn.addEventListener('click', () => {
-  slideshow_btn.classList.toggle('off');
-  slideshowOn = !slideshow_btn.classList.contains('off');
-  runSlideShow();
+
+// -------- FULLSCREEN -----------
+const fullscreen_btn = document.querySelector('.fullscreen');
+
+fullscreen_btn.addEventListener('click', () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen()
+      .then(() => fullscreen_btn.classList.remove('btn-off'))
+      .catch(() => alert('Fullscreen API not supported'));
+  } else {
+    document.exitFullscreen()
+      .then(() => fullscreen_btn.classList.add('btn-off'));
+  }
+});
+
+// Synchronize the button state if the user presses ESC/F11
+document.addEventListener('fullscreenchange', () => {
+  if (!document.fullscreenElement) {
+    fullscreen_btn.classList.add('btn-off');
+  }
 });
 
 load_image();
