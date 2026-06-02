@@ -206,29 +206,6 @@ const load_image = async () => {
 }; // end load_image
 
 
-
-
-
-// let timeoutID;
-// function runSlideShow() {
-
-//   if(slideshowOn) {
-//     timeoutID = setTimeout(async () => {
-//       await load_image();
-//       runSlideShow();
-//     }, 12000);
-//   } else {
-//     clearTimeout(timeoutID);
-//   }
-// }
-
-// slideshow_btn.addEventListener('click', () => {
-//   slideshow_btn.classList.toggle('btn-off');
-//   slideshowOn = !slideshow_btn.classList.contains('btn-off');
-//   runSlideShow();
-// });
-
-
 /// -------- SLIDESHOW -----------
 const slideshow_btn = document.querySelector('.slideshow'),
   slideshow_circle = slideshow_btn.querySelector('circle'),
