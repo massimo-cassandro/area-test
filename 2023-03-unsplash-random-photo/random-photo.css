@@ -144,6 +144,8 @@ canvas {
 
 /* icone */
 .icons {
+  --icon-size: 2.5rem;
+
   position: absolute;
   right: 1rem;
   bottom: 6rem;
@@ -158,8 +160,8 @@ canvas {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: var(--icon-size);
+    aspect-ratio: 1;
     padding: .4rem;
     cursor: pointer;
     background-color: hsl(76deg 95% 43% / .8);
@@ -208,7 +210,7 @@ canvas {
 }
 
 
-.progress-ring {
+.progress-ring { /* svg */
   --inset-offset: 2px;
   position: absolute;
   inset: var(--inset-offset);
@@ -222,17 +224,23 @@ canvas {
 }
 
 .progress-ring circle {
+  /*
+  doesn't work in firefox, all calc moved to js
+
   --stroke-width: 0.05;
   --radius: calc(0.5 - var(--stroke-width) / 2);
   --circumference: calc(2 * pi * var(--radius));
   cx: 0.5;
   cy: 0.5;
   r: var(--radius);
-  fill: none;
-  stroke: #000;
+  stroke-width: var(--stroke-width);
   stroke-dasharray: var(--circumference);
   stroke-dashoffset: calc(var(--circumference) * (1 - var(--progress, 0)));
-  stroke-width: var(--stroke-width);
+  */
+
+
+  fill: none;
+  stroke: #000;
   transition: stroke-dashoffset 0.1s linear;
 }
 

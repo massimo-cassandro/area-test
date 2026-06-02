@@ -234,6 +234,22 @@ const slideshow_btn = document.querySelector('.slideshow'),
   slideshow_circle = slideshow_btn.querySelector('circle'),
   duration = 12000;
 
+// setting up the progress circle inside the projection button
+// workaround to grant firefox compatibility, that has some issues with some css rules
+const strokeWidth = .05
+  ,radius = .5 - strokeWidth / 2
+  ,circumference = 2 * Math.PI * radius
+;
+
+
+slideshow_circle.style.setProperty('--circumference', circumference);
+slideshow_circle.setAttribute('r', radius);
+slideshow_circle.setAttribute('stroke-width', strokeWidth);
+slideshow_circle.setAttribute('cx', 0.5);
+slideshow_circle.setAttribute('cy', 0.5);
+slideshow_circle.setAttribute('stroke-dasharray', circumference);
+slideshow_circle.setAttribute('stroke-dashoffset', circumference);
+
 let startTime = null,
   animationFrameId = null,
   slideshowOn = false;
@@ -245,8 +261,13 @@ function animateProgress(timestamp) {
   const elapsed = timestamp - startTime;
   const progress = Math.min(elapsed / duration, 1);
 
+
   // update circle
-  slideshow_circle.style.setProperty('--progress', progress);
+  // ff hack
+  // slideshow_circle.style.setProperty('--progress', progress);
+  const offset = circumference * (1 - progress);
+  slideshow_circle.setAttribute('stroke-dashoffset', offset);
+
 
   if (progress < 1) {
     // continue animation
@@ -279,7 +300,10 @@ slideshow_btn.addEventListener('click', () => {
   // stop anumation
   else {
     cancelAnimationFrame(animationFrameId);
-    slideshow_circle.style.setProperty('--progress', 0);
+
+    // ff hack
+    // slideshow_circle.style.setProperty('--progress', 0);
+    slideshow_circle.setAttribute('stroke-dashoffset', circumference);
   }
 });
 
