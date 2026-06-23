@@ -1,0 +1,10 @@
+{
+  "name": "unsplash-chooser",
+  "version": "1.0.0",
+  "author": "Massimo Cassandro",
+  "license": "MIT",
+
+  "scripts": {
+    "python server": "python3 -m http.server 8000 # --directory __dirname__ # 8000 = default port"
+  }
+}
