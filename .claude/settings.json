@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/mazz/Library/Application Support/Code/User/snippets/**)"
+    ]
+  }
+}
